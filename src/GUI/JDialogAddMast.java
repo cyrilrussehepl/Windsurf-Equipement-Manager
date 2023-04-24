@@ -6,30 +6,25 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class JDialogAddBoard extends JDialog {
-    //Variables
+public class JDialogAddMast extends JDialog{
     private boolean submit;
     private JPanel mainPanel;
-    private JComboBox comboBoxYear;
-    private JTextField textFieldModel;
     private JButton buttonAdd;
-    private JLabel Title;
+    private JButton buttonCancel;
+    private JLabel labelTitle;
     private JPanel panelForm;
     private JLabel labelYear;
-    private JLabel labelModel;
     private JTextField textFieldBrand;
+    private JComboBox comboBoxYear;
+    private JTextField textFieldCarbonPercent;
+    private JComboBox comboBoxCurveType;
+    private JTextField textFieldSize;
     private JLabel labelBrand;
-    private JLabel labelDiscipline;
-    private JComboBox comboBoxDiscipline;
-    private JLabel labelVolume;
-    private JTextField textFieldVolume;
-    private JLabel labelWidth;
-    private JTextField textFieldWidth;
-    private JCheckBox foilCheckBox;
-    private JButton buttonCancel;
+    private JLabel labelSize;
+    private JLabel labelCurveType;
+    private JLabel LabelCarbonPercent;
 
-    //Constructor-------------------------------------------------------------------------------------------------------
-    public JDialogAddBoard()
+    public JDialogAddMast()
     {
         super();
         setModal(true);
@@ -88,7 +83,7 @@ public class JDialogAddBoard extends JDialog {
 
     //Static Methods----------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
-        JDialogAddBoard dialog = new JDialogAddBoard();
+        JDialogAddMast dialog = new JDialogAddMast();
         dialog.setVisible(true);
         /*if (dialog.isOk())
         {

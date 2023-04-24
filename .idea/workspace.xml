@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a88b7d8-6c0d-4762-b749-3ef61800f84a" name="Changes" comment="Ajout Controller + modif mainWindow + main ouvre basique window">
+    <list default="true" id="4a88b7d8-6c0d-4762-b749-3ef61800f84a" name="Changes" comment="Clean + maj controller et model en singleton">
+      <change afterPath="$PROJECT_DIR$/src/GUI/GUIData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddFin.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddFin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddMast.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddMast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddSail.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddSail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddWishbone.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddWishbone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windsurf/Wishboon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Wishbone.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +64,23 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "410",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/cyril/Documents/HEPL/B2Q2/Java/Projet-new/Projet-java/src/GUI",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cyril\Documents\HEPL\B2Q2\Java\Projet-new\Projet-java\src\GUI" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682320578458</updated>
-      <workItem from="1682320580925" duration="3696000" />
+      <workItem from="1682320580925" duration="30154000" />
     </task>
     <task id="LOCAL-00001" summary="Classes métiers + ajout fichier MainWindow">
       <created>1682321142959</created>
@@ -85,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682323748414</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Clean + maj controller et model en singleton">
+      <created>1682324805797</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682324805797</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +144,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Classes métiers + ajout fichier MainWindow" />
     <MESSAGE value="Ajout Controller + modif mainWindow + main ouvre basique window" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout Controller + modif mainWindow + main ouvre basique window" />
+    <MESSAGE value="Clean + maj controller et model en singleton" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean + maj controller et model en singleton" />
   </component>
 </project>

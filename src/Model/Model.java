@@ -10,7 +10,7 @@ public class Model {
     private static Model instance;
     private ArrayList<Board> boards = new ArrayList<Board>();
     private ArrayList<Sail> sails = new ArrayList<Sail>();
-    private ArrayList<Wishboon> wishboons = new ArrayList<Wishboon>();
+    private ArrayList<Wishbone> wishbones = new ArrayList<Wishbone>();
     private ArrayList<Mast> masts = new ArrayList<Mast>();
     private ArrayList<Fin> fins = new ArrayList<Fin>();
     private ArrayList<Foil> foils = new ArrayList<Foil>();
@@ -60,21 +60,21 @@ public class Model {
         return sails;
     }
 
-    //Wishboon
-    public void addWishboon(Wishboon wishboon){
-        Model.this.wishboons.add(wishboon);
+    //Wishbone
+    public void addWishboon(Wishbone wishbone){
+        Model.this.wishbones.add(wishbone);
     }
 
     public void removeWishboon(int index){
-        wishboons.remove(index);
+        wishbones.remove(index);
     }
 
-    public void updateWishboon(int index, Wishboon wishboon){
-        Model.this.wishboons.set(index, wishboon);
+    public void updateWishboon(int index, Wishbone wishbone){
+        Model.this.wishbones.set(index, wishbone);
     }
 
-    public ArrayList<Wishboon> getWishboons(){
-        return wishboons;
+    public ArrayList<Wishbone> getWishboons(){
+        return wishbones;
     }
 
     //Mast

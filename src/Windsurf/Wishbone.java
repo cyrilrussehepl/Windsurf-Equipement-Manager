@@ -1,19 +1,19 @@
 package Windsurf;
 
-public class Wishboon extends Equipement {
+public class Wishbone extends Equipement {
     //Variables---------------------------------------------------------------------------------------------------------
     private int[] size = new int[2];
     private int carbonPercent;
 
     //Constructors------------------------------------------------------------------------------------------------------
-   public Wishboon(int min, int max, int carbonPercent){
+   public Wishbone(int min, int max, int carbonPercent){
        super();
        this.carbonPercent = carbonPercent;
        this.size[0] = min;
        this.size[1] = max;
    }
 
-   public Wishboon(){
+   public Wishbone(){
        this(0,0,0);
    }
 
