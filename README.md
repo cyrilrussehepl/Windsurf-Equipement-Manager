@@ -1,0 +1,1 @@
+# Windsurf-Equipement-Manager
