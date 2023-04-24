@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a88b7d8-6c0d-4762-b749-3ef61800f84a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/AddBoard.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/AddBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/MainWindow.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/MainWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Windsurf/Foil/FoilMast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Windsurf/Foil/Fuselage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Windsurf/Foil/Wing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Windsurf/Mast.java" afterDir="false" />
+    <list default="true" id="4a88b7d8-6c0d-4762-b749-3ef61800f84a" name="Changes" comment="Classes métiers + ajout fichier MainWindow">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Projet-java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Projet-java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/MainWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +31,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ec6dcfea-209e-4188-9bfb-7cb3cd2b8a53" />
+        <option name="url" value="https://github.com/cyrilrussehepl/Windsurf-Equipement-Manager.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2OrZHjxOzYkKoESJ21EExKqolVZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -40,7 +55,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -58,8 +75,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682320578458</updated>
-      <workItem from="1682320580925" duration="356000" />
+      <workItem from="1682320580925" duration="2922000" />
     </task>
+    <task id="LOCAL-00001" summary="Classes métiers + ajout fichier MainWindow">
+      <created>1682321142959</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682321142959</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -70,10 +95,26 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Classes métiers + ajout fichier MainWindow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Classes métiers + ajout fichier MainWindow" />
   </component>
 </project>
