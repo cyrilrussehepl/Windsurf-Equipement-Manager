@@ -3,7 +3,7 @@ package Windsurf.Foil;
 import Windsurf.Equipement;
 
 public class Wing extends Equipement {
-    //Variables
+    //Variables---------------------------------------------------------------------------------------------------------
     private int area;
     private Foil.MaterialType materialType;
     private WingType wingType;
@@ -12,7 +12,7 @@ public class Wing extends Equipement {
         BACK_WING
     }
 
-    //Constructors
+    //Constructors------------------------------------------------------------------------------------------------------
     public Wing(int area, Foil.MaterialType materialType, WingType wingType) {
         super();
         this.area = area;
@@ -24,7 +24,7 @@ public class Wing extends Equipement {
         this(area, Foil.MaterialType.CARBON, wingType);
     }
 
-    //Getters and Setters
+    //Getters and Setters-----------------------------------------------------------------------------------------------
     public WingType getWingType() {
         return wingType;
     }

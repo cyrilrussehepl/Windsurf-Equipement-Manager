@@ -1,7 +1,7 @@
 package Windsurf;
 
 public class Mast extends Equipement {
-    //Variables
+    //Variables---------------------------------------------------------------------------------------------------------
     public enum Curve {
         HARD_TOP,
         CONST_CURVE,
@@ -16,7 +16,7 @@ public class Mast extends Equipement {
     private Curve curve;
     private DiameterMast diameterMast;
 
-    //Constructors
+    //Constructors------------------------------------------------------------------------------------------------------
     public Mast(int length, int carbonPercent, Curve curve, DiameterMast diameterMast) {
         super();
         this.length = length;
@@ -33,7 +33,7 @@ public class Mast extends Equipement {
         this(length, 0);
     }
 
-    //Getters and Setters
+    //Getters and Setters-----------------------------------------------------------------------------------------------
     public int getLength() {
         return length;
     }

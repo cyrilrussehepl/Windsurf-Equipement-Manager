@@ -8,7 +8,20 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class Controller extends WindowAdapter implements ActionListener {
+    //Variables---------------------------------------------------------------------------------------------------------
     public final static String QUITTER = "Quitter";
+    private static Controller instance;
+
+    //Constructor private for singleton class---------------------------------------------------------------------------
+    private Controller(){}
+
+    public static Controller getInstance(){
+        if(instance == null)
+            instance = new Controller();
+        return instance;
+    }
+
+    //Methods-----------------------------------------------------------------------------------------------------------
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals(QUITTER))

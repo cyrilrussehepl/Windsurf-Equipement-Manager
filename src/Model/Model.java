@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Model {
     //Variables---------------------------------------------------------------------------------------------------------
+    private static Model instance;
     private ArrayList<Board> boards = new ArrayList<Board>();
     private ArrayList<Sail> sails = new ArrayList<Sail>();
     private ArrayList<Wishboon> wishboons = new ArrayList<Wishboon>();
@@ -15,8 +16,13 @@ public class Model {
     private ArrayList<Foil> foils = new ArrayList<Foil>();
 
     //Constructors------------------------------------------------------------------------------------------------------
-    public Model(){
+    private Model(){
 
+    }
+    public static Model getInstance(){
+        if(instance == null)
+            instance = new Model();
+        return instance;
     }
 
     //Methods-----------------------------------------------------------------------------------------------------------

@@ -3,11 +3,11 @@ package Windsurf.Foil;
 import Windsurf.Equipement;
 
 public class FoilMast extends Equipement {
-    //Variables
+    //Variables---------------------------------------------------------------------------------------------------------
     private int size;
     private Foil.MaterialType materialType;
 
-    //Constructors
+    //Constructors------------------------------------------------------------------------------------------------------
     public FoilMast(int size, Foil.MaterialType materialType) {
         super();
         this.size = size;
@@ -18,7 +18,7 @@ public class FoilMast extends Equipement {
         this(size, Foil.MaterialType.CARBON);
     }
 
-    //Getters and Setters
+    //Getters and Setters-----------------------------------------------------------------------------------------------
     public int getSize() {
         return size;
     }
