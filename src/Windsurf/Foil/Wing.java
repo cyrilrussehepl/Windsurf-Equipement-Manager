@@ -7,6 +7,12 @@ public class Wing extends Equipement {
     private int area;
     private Foil.MaterialType materialType;
     private WingType wingType;
+
+    @Override
+    public Object[] toObject() {
+        return new Object[0];
+    }
+
     public enum WingType{
         FRONT_WING,
         BACK_WING

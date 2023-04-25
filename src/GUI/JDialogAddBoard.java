@@ -10,7 +10,7 @@ public class JDialogAddBoard extends JDialog {
     //Variables
     private boolean submit;
     private JPanel mainPanel;
-    private JComboBox comboBoxYear;
+    protected JComboBox comboBoxYear;
     private JTextField textFieldModel;
     private JButton buttonAdd;
     private JLabel Title;
@@ -22,11 +22,13 @@ public class JDialogAddBoard extends JDialog {
     private JLabel labelDiscipline;
     private JComboBox comboBoxDiscipline;
     private JLabel labelVolume;
-    private JTextField textFieldVolume;
     private JLabel labelWidth;
-    private JTextField textFieldWidth;
     private JCheckBox foilCheckBox;
     private JButton buttonCancel;
+    private JComboBox comboBoxBoxType;
+    private JLabel labelBoxType;
+    private JSpinner spinnerVolume;
+    private JSpinner spinnerWidth;
 
     //Constructor-------------------------------------------------------------------------------------------------------
     public JDialogAddBoard()
@@ -41,6 +43,15 @@ public class JDialogAddBoard extends JDialog {
         setLocation((screen.width - this.getSize().width)/2,(screen.height - this.getSize().height)/2);
 
         submit = false;
+
+        //comboboxYear add item
+        commonLayout.addYearItem(comboBoxYear);
+        commonLayout.addDisciplineItem(comboBoxDiscipline);
+        commonLayout.addBoxTypeItem(comboBoxBoxType);
+
+        spinnerVolume.setModel(new SpinnerNumberModel(100, 0, 200, 1));
+        spinnerWidth.setModel(new SpinnerNumberModel(80, 0, 150, 1));
+
         buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,4 +109,5 @@ public class JDialogAddBoard extends JDialog {
         }*/
         dialog.dispose();
     }
+
 }

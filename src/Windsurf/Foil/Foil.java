@@ -65,4 +65,9 @@ public class Foil extends Equipement {
    public String toString() {
       return "Ceci est un foil";
    }
+
+    @Override
+    public Object[] toObject() {
+        return new Object[0];
+    }
 }

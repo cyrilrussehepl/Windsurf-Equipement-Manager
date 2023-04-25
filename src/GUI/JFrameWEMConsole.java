@@ -1,6 +1,9 @@
 package GUI;
 
 import Controller.Controller;
+import Model.Model;
+import Windsurf.Board;
+import Windsurf.Equipement;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -78,22 +81,25 @@ public class JFrameWEMConsole extends JFrame {
         //table
         DefaultTableModel model = new DefaultTableModel();
 
-        Object[][] data = {{2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70},
-                {2022, "Starboard", "Isonic", 117, 70}
+        Board testBoard = new Board(2020, "Starboard", Equipement.Category.PLANCHE, 110, 80, "Futura");
+
+        Object[][] dataBoardTest = {{2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+                testBoard.toObject()
         };
-        model.setDataVector(data, GUIData.columnBoard);
+        model.setDataVector(dataBoardTest, GUIData.columnBoard);
         tableData.setModel(model);
 
 
@@ -117,6 +123,7 @@ public class JFrameWEMConsole extends JFrame {
     public static void main(String[] args) {
         JFrameWEMConsole window = new JFrameWEMConsole();
         Controller controller = Controller.getInstance();
+        Model model = Model.getInstance();
         window.setController(controller);
 
         window.setVisible(true);

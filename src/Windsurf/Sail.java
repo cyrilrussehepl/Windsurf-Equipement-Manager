@@ -73,6 +73,11 @@ public class Sail extends Equipement {
         this.nCamber = nCamber;
     }
 
+    @Override
+    public Object[] toObject() {
+        return new Object[0];
+    }
+
 
     //Methods-----------------------------------------------------------------------------------------------------------
 }

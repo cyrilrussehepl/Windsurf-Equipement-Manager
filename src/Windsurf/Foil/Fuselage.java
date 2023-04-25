@@ -44,4 +44,9 @@ public class Fuselage extends Equipement {
     public void setModel(String model) {
         this.model = model;
     }
+
+    @Override
+    public Object[] toObject() {
+        return new Object[0];
+    }
 }

@@ -17,6 +17,11 @@ public class Wishbone extends Equipement {
        this(0,0,0);
    }
 
+    @Override
+    public Object[] toObject() {
+        return new Object[0];
+    }
+
     //Getters and Setters-----------------------------------------------------------------------------------------------
     public int getSizeMin(){
         return this.size[0];

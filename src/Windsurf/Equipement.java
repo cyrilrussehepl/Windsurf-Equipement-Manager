@@ -95,4 +95,6 @@ public abstract class Equipement {
     public String toString() {
         return super.toString();
     }
+
+    public abstract Object[] toObject();
 }

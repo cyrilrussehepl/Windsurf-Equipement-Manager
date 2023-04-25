@@ -1,6 +1,11 @@
 package Windsurf;
 
 public class Mast extends Equipement {
+    @Override
+    public Object[] toObject() {
+        return new Object[0];
+    }
+
     //Variables---------------------------------------------------------------------------------------------------------
     public enum Curve {
         HARD_TOP,
