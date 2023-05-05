@@ -34,9 +34,7 @@ public abstract class Equipement {
         this.acquisitionDate = acquisitionDate;
         this.discipline = discipline;
     }
-    public Equipement(int year, String brand, Category category){
-        this(year, brand, category, new Date(), Discipline.SLALOM);
-    }
+    public Equipement(int year, String brand, Category category){this(year, brand, category, new Date(), Discipline.SLALOM);}
     public Equipement(){
         this(-1, null, Category.BOTH, new Date(), Discipline.SLALOM);
     }
@@ -93,7 +91,7 @@ public abstract class Equipement {
     //Methods-----------------------------------------------------------------------------------------------------------
     @Override
     public String toString() {
-        return super.toString();
+        return "year:"+year+";brand:"+brand+";discipline:"+discipline+";date:"+acquisitionDate+";category:"+category+";";
     }
 
     public abstract Object[] toObject();

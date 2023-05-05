@@ -8,7 +8,6 @@ import Windsurf.Equipement;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.Vector;
 
 public class JFrameWEMConsole extends JFrame {
     //Variables---------------------------------------------------------------------------------------------------------
@@ -27,10 +26,13 @@ public class JFrameWEMConsole extends JFrame {
     private JMenuItem itemSail;
     private JMenuItem itemWishbone;
     private JMenuItem itemFin;
+    private JMenuItem itemMast;
     private JMenuItem itemHelp;
     private JMenuItem itemAbout;
     private JMenuItem itemExit;
-    private ImageIcon imageIconTest = new ImageIcon("../../img/isonic_73.png");
+    private JMenuItem itemSave;
+    private JMenuItem itemSaveAs;
+    private JMenuItem itemLoad;
 
     //Constructor-------------------------------------------------------------------------------------------------------
     public JFrameWEMConsole()
@@ -49,14 +51,23 @@ public class JFrameWEMConsole extends JFrame {
         itemSail = new JMenuItem("Sail");
         itemWishbone = new JMenuItem("Wishbone");
         itemFin = new JMenuItem("Fin");
+        itemMast = new JMenuItem("Mast");
         subMenuAdd = new JMenu("Add");
         subMenuAdd.add(itemBoard);
         subMenuAdd.add(itemSail);
+        subMenuAdd.add(itemMast);
         subMenuAdd.add(itemWishbone);
         subMenuAdd.add(itemFin);
+        itemSave = new JMenuItem("Save");
+        itemSaveAs = new JMenuItem("Save As");
+        itemLoad = new JMenuItem("Load");
         itemExit = new JMenuItem("Exit");
 
         menuNew.add(subMenuAdd);
+        menuNew.addSeparator();
+        menuNew.add(itemSave);
+        menuNew.add(itemSaveAs);
+        menuNew.add(itemLoad);
         menuNew.addSeparator();
         menuNew.add(itemExit);
         //menuHelp
@@ -102,12 +113,6 @@ public class JFrameWEMConsole extends JFrame {
         model.setDataVector(dataBoardTest, GUIData.columnBoard);
         tableData.setModel(model);
 
-
-        //Affichage img test
-       /* imageIconTest = new ImageIcon(getClass().getResource("isonic_73.png"));
-        labelImg = new JLabel(imageIconTest);
-        panelSelectedItem.add(labelImg);*/
-
         //window size definition and init window position
         setSize(800,600);
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -116,6 +121,7 @@ public class JFrameWEMConsole extends JFrame {
 
     //Methods-----------------------------------------------------------------------------------------------------------
     public void setController(Controller c){
+        itemBoard.addActionListener(c);
         this.addWindowListener(c);
     }
 
@@ -124,8 +130,8 @@ public class JFrameWEMConsole extends JFrame {
         JFrameWEMConsole window = new JFrameWEMConsole();
         Controller controller = Controller.getInstance();
         Model model = Model.getInstance();
-        window.setController(controller);
 
+        window.setController(controller);
         window.setVisible(true);
     }
 }

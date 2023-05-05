@@ -1,5 +1,8 @@
 package Controller;
 
+import GUI.JDialogAddBoard;
+import Model.Model;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -11,9 +14,12 @@ public class Controller extends WindowAdapter implements ActionListener {
     //Variables---------------------------------------------------------------------------------------------------------
     public final static String QUITTER = "Quitter";
     private static Controller instance;
+    private Model model;
 
     //Constructor private for singleton class---------------------------------------------------------------------------
-    private Controller(){}
+    private Controller(){
+        model = Model.getInstance();
+    }
 
     public static Controller getInstance(){
         if(instance == null)
@@ -26,6 +32,22 @@ public class Controller extends WindowAdapter implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals(QUITTER))
             onQuitter();
+
+        if (e.getActionCommand().equals("Board"))
+            onNewBoard();
+    }
+
+    private void onNewBoard(){
+        JDialogAddBoard dialog = new JDialogAddBoard();
+        dialog.setVisible(true);
+
+        if(dialog.submited()) {
+            model.addBoard(dialog.getNewBoard());
+            model.saveModel();
+            dialog.dispose();
+        }
+        else
+            dialog.dispose();
     }
     @Override
     public void windowClosing(WindowEvent e) {

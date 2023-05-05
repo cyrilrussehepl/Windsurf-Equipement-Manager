@@ -37,7 +37,7 @@
               </grid>
             </constraints>
             <properties>
-              <icon value="img/board.png"/>
+              <icon value="img/image_test.png"/>
               <text value="IMG"/>
             </properties>
           </component>

@@ -42,4 +42,9 @@ public class Board extends Equipement {
     public Object[] toObject() {
         return new Object[]{this.getyear(), this.getBrand(), this.model, this.volume, this.width, this.getCategory()};
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"volume:"+volume+";width:"+width+";model:"+model+";";
+    }
 }

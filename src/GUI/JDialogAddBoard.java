@@ -1,5 +1,9 @@
 package GUI;
 
+import Windsurf.Board;
+import Windsurf.Equipement;
+import Windsurf.Fin;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,13 +34,23 @@ public class JDialogAddBoard extends JDialog {
     private JSpinner spinnerVolume;
     private JSpinner spinnerWidth;
 
+    //local variables for saving inputs
+    private int year;
+    private String model;
+    private String brand;
+    private Equipement.Discipline discipline;
+    private int volume;
+    private int width;
+    private Fin.BoxType boxType;
+    private Equipement.Category category;
+    private Board newBoard;
     //Constructor-------------------------------------------------------------------------------------------------------
     public JDialogAddBoard()
     {
         super();
         setModal(true);
         setContentPane(mainPanel);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("New Board");
         pack();
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -52,50 +66,39 @@ public class JDialogAddBoard extends JDialog {
         spinnerVolume.setModel(new SpinnerNumberModel(100, 0, 200, 1));
         spinnerWidth.setModel(new SpinnerNumberModel(80, 0, 150, 1));
 
+        buttonCancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+
         buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /*try
-                {
-                    a = Double.parseDouble(textFieldA.getText());
-                }
-                catch(NumberFormatException ex)
-                {
-                    textFieldA.setBackground(Color.ORANGE);
-                    JOptionPane.showMessageDialog(null,"Paramètre a invalide !","Erreur !!!",JOptionPane.ERROR_MESSAGE);
-                    textFieldA.setBackground(Color.WHITE);
-                    textFieldA.setText("");
-                    return;
-                }
-                try
-                {
-                    b = Double.parseDouble(textFieldB.getText());
-                }
-                catch(NumberFormatException ex)
-                {
-                    textFieldB.setBackground(Color.ORANGE);
-                    JOptionPane.showMessageDialog(null,"Paramètre b invalide !","Erreur !!!",JOptionPane.ERROR_MESSAGE);
-                    textFieldB.setBackground(Color.WHITE);
-                    textFieldB.setText("");
-                    return;
-                }
-                try
-                {
-                    c = Double.parseDouble(textFieldC.getText());
-                }
-                catch(NumberFormatException ex)
-                {
-                    textFieldC.setBackground(Color.ORANGE);
-                    JOptionPane.showMessageDialog(null,"Paramètre c invalide !","Erreur !!!",JOptionPane.ERROR_MESSAGE);
-                    textFieldC.setBackground(Color.WHITE);
-                    textFieldC.setText("");
-                    return;
-                }*/
+                year = commonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex());
+                model = textFieldModel.getText();
+                System.out.println(model);
+                brand = textFieldBrand.getText();
+                discipline = Equipement.Discipline.values()[comboBoxDiscipline.getSelectedIndex()];
+                volume = ((Integer)spinnerVolume.getValue()).intValue();
+                width = ((Integer)spinnerWidth.getValue()).intValue();
+                boxType = Fin.BoxType.values()[comboBoxBoxType.getSelectedIndex()];
+                category = foilCheckBox.isSelected()? Equipement.Category.FOIL: Equipement.Category.PLANCHE;
+
+                newBoard = new Board(year, brand, category, volume, width, model);
                 submit = true;
                 setVisible(false);
             }
         });
     }
+
+    //Getters and setters
+    public boolean submited(){
+        return submit;
+    }
+
 
     //Static Methods----------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
@@ -110,4 +113,7 @@ public class JDialogAddBoard extends JDialog {
         dialog.dispose();
     }
 
+    public Board getNewBoard() {
+        return newBoard;
+    }
 }

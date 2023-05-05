@@ -8,10 +8,14 @@ import javax.swing.*;
 
 import java.time.LocalDate;
 
-public interface commonLayout {
+public class commonLayout {
     public static void addYearItem(JComboBox comboBoxYear){
         for(Integer i = LocalDate.now().getYear(); i>=2000; i--)
             comboBoxYear.addItem(i.toString());
+    }
+
+    public static int yearIndexToDate(int index){
+        return LocalDate.now().getYear()-index;
     }
 
     public static void addDisciplineItem(JComboBox comboBoxDiscipline){
