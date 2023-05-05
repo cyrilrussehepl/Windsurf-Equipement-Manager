@@ -8,6 +8,7 @@ import Windsurf.Equipement;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.*;
 
 public class JFrameWEMConsole extends JFrame {
     //Variables---------------------------------------------------------------------------------------------------------
@@ -20,6 +21,7 @@ public class JFrameWEMConsole extends JFrame {
     private JScrollPane scrollPaneTableDataContainer;
     private JMenuBar menuBar;
     private JMenu menuNew;
+    private JMenu menuSettings;
     private JMenu menuHelp;
     private JMenu subMenuAdd;
     private JMenuItem itemBoard;
@@ -33,6 +35,7 @@ public class JFrameWEMConsole extends JFrame {
     private JMenuItem itemSave;
     private JMenuItem itemSaveAs;
     private JMenuItem itemLoad;
+    private JMenuItem itemSettings;
 
     //Constructor-------------------------------------------------------------------------------------------------------
     public JFrameWEMConsole()
@@ -59,9 +62,12 @@ public class JFrameWEMConsole extends JFrame {
         subMenuAdd.add(itemWishbone);
         subMenuAdd.add(itemFin);
         itemSave = new JMenuItem("Save");
+        itemSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         itemSaveAs = new JMenuItem("Save As");
         itemLoad = new JMenuItem("Load");
+        itemLoad.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         itemExit = new JMenuItem("Exit");
+        itemExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
 
         menuNew.add(subMenuAdd);
         menuNew.addSeparator();
@@ -70,6 +76,11 @@ public class JFrameWEMConsole extends JFrame {
         menuNew.add(itemLoad);
         menuNew.addSeparator();
         menuNew.add(itemExit);
+        //menuSettings
+        itemSettings = new JMenuItem("Settings");
+        menuSettings = new JMenu("Settings");
+
+        menuSettings.add(itemSettings);
         //menuHelp
         menuHelp = new JMenu("Help");
         itemHelp = new JMenuItem("Help");
@@ -80,6 +91,7 @@ public class JFrameWEMConsole extends JFrame {
         menuHelp.add(itemAbout);
         //Add menus to menuBar
         menuBar.add(menuNew);
+        menuBar.add(menuSettings);
         menuBar.add(menuHelp);
         this.setJMenuBar(menuBar);
 
@@ -122,6 +134,11 @@ public class JFrameWEMConsole extends JFrame {
     //Methods-----------------------------------------------------------------------------------------------------------
     public void setController(Controller c){
         itemBoard.addActionListener(c);
+        itemSail.addActionListener(c);
+        itemWishbone.addActionListener(c);
+        itemMast.addActionListener(c);
+        itemFin.addActionListener(c);
+        itemExit.addActionListener(c);
         this.addWindowListener(c);
     }
 
@@ -130,6 +147,7 @@ public class JFrameWEMConsole extends JFrame {
         JFrameWEMConsole window = new JFrameWEMConsole();
         Controller controller = Controller.getInstance();
         Model model = Model.getInstance();
+//        model.saveModel();
 
         window.setController(controller);
         window.setVisible(true);

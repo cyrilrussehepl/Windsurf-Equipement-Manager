@@ -44,9 +44,9 @@ public class JDialogAddBoard extends JDialog {
     private Fin.BoxType boxType;
     private Equipement.Category category;
     private Board newBoard;
+
     //Constructor-------------------------------------------------------------------------------------------------------
-    public JDialogAddBoard()
-    {
+    public JDialogAddBoard() {
         super();
         setModal(true);
         setContentPane(mainPanel);
@@ -54,11 +54,11 @@ public class JDialogAddBoard extends JDialog {
         setTitle("New Board");
         pack();
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation((screen.width - this.getSize().width)/2,(screen.height - this.getSize().height)/2);
+        setLocation((screen.width - this.getSize().width) / 2, (screen.height - this.getSize().height) / 2);
 
         submit = false;
 
-        //comboboxYear add item
+        //combobox add items
         commonLayout.addYearItem(comboBoxYear);
         commonLayout.addDisciplineItem(comboBoxDiscipline);
         commonLayout.addBoxTypeItem(comboBoxBoxType);
@@ -79,13 +79,12 @@ public class JDialogAddBoard extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 year = commonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex());
                 model = textFieldModel.getText();
-                System.out.println(model);
                 brand = textFieldBrand.getText();
                 discipline = Equipement.Discipline.values()[comboBoxDiscipline.getSelectedIndex()];
-                volume = ((Integer)spinnerVolume.getValue()).intValue();
-                width = ((Integer)spinnerWidth.getValue()).intValue();
+                volume = ((Integer) spinnerVolume.getValue()).intValue();
+                width = ((Integer) spinnerWidth.getValue()).intValue();
                 boxType = Fin.BoxType.values()[comboBoxBoxType.getSelectedIndex()];
-                category = foilCheckBox.isSelected()? Equipement.Category.FOIL: Equipement.Category.PLANCHE;
+                category = foilCheckBox.isSelected() ? Equipement.Category.FOIL : Equipement.Category.PLANCHE;
 
                 newBoard = new Board(year, brand, category, volume, width, model);
                 submit = true;
@@ -95,7 +94,7 @@ public class JDialogAddBoard extends JDialog {
     }
 
     //Getters and setters
-    public boolean submited(){
+    public boolean submited() {
         return submit;
     }
 
@@ -104,12 +103,6 @@ public class JDialogAddBoard extends JDialog {
     public static void main(String[] args) {
         JDialogAddBoard dialog = new JDialogAddBoard();
         dialog.setVisible(true);
-        /*if (dialog.isOk())
-        {
-            System.out.println("a = " + dialog.getA());
-            System.out.println("b = " + dialog.getB());
-            System.out.println("c = " + dialog.getC());
-        }*/
         dialog.dispose();
     }
 

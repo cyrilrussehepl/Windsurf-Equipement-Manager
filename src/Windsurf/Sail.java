@@ -24,6 +24,10 @@ public class Sail extends Equipement {
         this(area, mastSize, wishSize, Mast.Curve.CONST_CURVE, model, 0);
     }
 
+    public Sail(int year, String brand, Category category, Discipline discipline){
+        super(year, brand, category, discipline);
+    }
+
     //Getters and Setters-----------------------------------------------------------------------------------------------
     public float getArea() {
         return area;

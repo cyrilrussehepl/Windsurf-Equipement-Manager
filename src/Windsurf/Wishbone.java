@@ -17,6 +17,9 @@ public class Wishbone extends Equipement {
        this(0,0,0);
    }
 
+   public Wishbone(int year, String brand, Category category, Discipline discipline){
+       super(year, brand, category, discipline);
+   }
     @Override
     public Object[] toObject() {
         return new Object[0];

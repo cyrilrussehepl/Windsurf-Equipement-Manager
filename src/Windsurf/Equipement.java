@@ -34,7 +34,10 @@ public abstract class Equipement {
         this.acquisitionDate = acquisitionDate;
         this.discipline = discipline;
     }
-    public Equipement(int year, String brand, Category category){this(year, brand, category, new Date(), Discipline.SLALOM);}
+    public Equipement(int year, String brand, Category category, Discipline discipline){
+        this(year, brand, category, new Date(), discipline);
+    }
+    public Equipement(int year, String brand, Category category){this(year, brand, category, Discipline.SLALOM);}
     public Equipement(){
         this(-1, null, Category.BOTH, new Date(), Discipline.SLALOM);
     }

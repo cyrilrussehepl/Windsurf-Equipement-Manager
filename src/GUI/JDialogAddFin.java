@@ -47,16 +47,14 @@ public class JDialogAddFin extends JDialog {
         });
     }
 
+    public boolean submited(){
+        return submit;
+    }
+
     //Static Methods----------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
         JDialogAddFin dialog = new JDialogAddFin();
         dialog.setVisible(true);
-        /*if (dialog.isOk())
-        {
-            System.out.println("a = " + dialog.getA());
-            System.out.println("b = " + dialog.getB());
-            System.out.println("c = " + dialog.getC());
-        }*/
         dialog.dispose();
     }
 }
