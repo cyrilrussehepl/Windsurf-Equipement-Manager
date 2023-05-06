@@ -1,6 +1,14 @@
 package Windsurf;
 
 public class Mast extends Equipement {
+    public Geometry getGeometry() {
+        return geometry;
+    }
+
+    public void setGeometry(Geometry geometry) {
+        this.geometry = geometry;
+    }
+
     //Variables---------------------------------------------------------------------------------------------------------
     public enum Curve {
         HARD_TOP,
@@ -31,6 +39,10 @@ public class Mast extends Equipement {
 
     public Mast(int length){
         this(length, 0);
+    }
+
+    public Mast(int year, String brand){
+        super(year, brand, Category.BOTH);
     }
 
     //Getters and Setters-----------------------------------------------------------------------------------------------

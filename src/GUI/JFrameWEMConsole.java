@@ -105,6 +105,10 @@ public class JFrameWEMConsole extends JFrame {
         //table
         Model model = Model.getInstance();
         TableModelBoard tableModelBoard = TableModelBoard.getInstance(model.getBoards());
+        TableModelSail tableModelSail = TableModelSail.getInstance(model.getSails());
+        TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(model.getWishboons());
+        TableModelMast tableModelMast = TableModelMast.getInstance(model.getMasts());
+        TableModelFin tableModelFin = TableModelFin.getInstance(model.getFins());
         //for test
 //        for (int i = 0; i < 10; i++)
 //            model.addBoard(new Board(2022, "Fanatic", Equipement.Category.PLANCHE, 100, 80, "Falcon"));
@@ -153,6 +157,14 @@ public class JFrameWEMConsole extends JFrame {
             case 2 ->{
                 TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(model.getWishboons());
                 tableData.setModel(tableModelWishbone);
+            }
+            case 3 ->{
+                TableModelMast tableModelMast = TableModelMast.getInstance(model.getMasts());
+                tableData.setModel(tableModelMast);
+            }
+            case 4 ->{
+                TableModelFin tableModelFin = TableModelFin.getInstance(model.getFins());
+                tableData.setModel(tableModelFin);
             }
         }
     }

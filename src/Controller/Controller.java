@@ -44,8 +44,8 @@ public class Controller extends WindowAdapter implements ActionListener {
             case BOARD -> onNewBoard(command);
             case SAIL -> onNewSail(command);
             case WISHBONE -> onNewWishbone(command);
-//            case MAST:
-//            case FIN:
+            case MAST-> onNewMast(command);
+            case FIN-> onNewFin(command);
             case SAVE -> onSave();
             case SAVE_AS -> onSaveAs();
             case LOAD -> onLoad();
@@ -55,7 +55,7 @@ public class Controller extends WindowAdapter implements ActionListener {
 
     private void onLoad() {
         int ret = JOptionPane.showConfirmDialog(null, "Do you really want to load data from file? Unsaved changes will be discarded");
-        if (ret == JOptionPane.NO_OPTION)
+        if (ret != JOptionPane.YES_OPTION)
             return;
 
         JFileChooser fileChooser = new JFileChooser();
@@ -73,7 +73,19 @@ public class Controller extends WindowAdapter implements ActionListener {
             model.load(selectedFile.getAbsolutePath());
             TableModelBoard tableModelBoard = TableModelBoard.getInstance(null);
             tableModelBoard.setData(model.getBoards());
+            TableModelSail tableModelSail = TableModelSail.getInstance(null);
+            tableModelSail.setData(model.getSails());
+            TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(null);
+            tableModelWishbone.setData(model.getWishboons());
+            TableModelMast tableModelMast = TableModelMast.getInstance(null);
+            tableModelMast.setData(model.getMasts());
+            TableModelFin tableModelFin = TableModelFin.getInstance(null);
+            tableModelFin.setData(model.getFins());
             tableModelBoard.updateTable();
+            tableModelSail.updateTable();
+            tableModelWishbone.updateTable();
+            tableModelMast.updateTable();
+            tableModelFin.updateTable();
         }
     }
 
@@ -130,6 +142,28 @@ public class Controller extends WindowAdapter implements ActionListener {
             model.addWishboon(dialog.getNewWishbone());
             TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(null);
             tableModelWishbone.updateTable();
+        }
+        dialog.dispose();
+    }
+
+    private void onNewMast(String command) {
+        JDialogAddMast dialog = new JDialogAddMast();
+        dialog.setVisible(true);
+        if (dialog.submited()) {
+            model.addMast(dialog.getNewMast());
+            TableModelMast tableModelMast = TableModelMast.getInstance(null);
+            tableModelMast.updateTable();
+        }
+        dialog.dispose();
+    }
+
+    private void onNewFin(String command) {
+        JDialogAddFin dialog = new JDialogAddFin();
+        dialog.setVisible(true);
+        if (dialog.submited()) {
+            model.addFin(dialog.getNewFin());
+            TableModelFin tableModelFin = TableModelFin.getInstance(null);
+            tableModelFin.updateTable();
         }
         dialog.dispose();
     }

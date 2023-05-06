@@ -47,12 +47,17 @@
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="Lucida Sans Typewriter" size="22"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="5f042" class="javax.swing.JTable" binding="tableData">
             <constraints/>
-            <properties/>
+            <properties>
+              <font name="Source Code Pro"/>
+              <intercellSpacing width="1" height="1"/>
+            </properties>
             <clientProperties>
               <Table.isFileList class="java.lang.Boolean" value="false"/>
             </clientProperties>

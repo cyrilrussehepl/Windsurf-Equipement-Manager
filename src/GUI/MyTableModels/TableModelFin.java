@@ -1,21 +1,27 @@
 package GUI.MyTableModels;
 
-import Windsurf.Mast;
+import Windsurf.Fin;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
-public class TableModelMast extends AbstractTableModel {
-    private ArrayList<Mast> data;
-    private static TableModelMast instance;
-    private static String[] columnNames = new String[]{"Year", "Brand", "Length", "Carbon Percent", "Curve", "Geometry"};
+public class TableModelFin extends AbstractTableModel {
+    private ArrayList<Fin> data;
+    private static TableModelFin instance;
+    private static String[] columnNames = new String[]{
+            "Year",
+            "Brand",
+            "Size",
+            "Box Type",
+            "Anti-algae"
+    };
 
-    public static TableModelMast getInstance(ArrayList<Mast> data) {
-        if (instance == null) instance = new TableModelMast(data);
+    public static TableModelFin getInstance(ArrayList<Fin> data) {
+        if (instance == null) instance = new TableModelFin(data);
         return instance;
     }
 
-    private TableModelMast(ArrayList<Mast> data) {
+    private TableModelFin(ArrayList<Fin> data) {
         super();
         this.data = data;
     }
@@ -41,26 +47,24 @@ public class TableModelMast extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Mast mast = data.get(rowIndex);
+        Fin sail = data.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return mast.getyear();
+                return sail.getyear();
             case 1:
-                return mast.getBrand();
+                return sail.getBrand();
             case 2:
-                return mast.getLength();
+                return sail.getSize();
             case 3:
-                return mast.getCarbonPercent();
+                return sail.getBox_type();
             case 4:
-                return mast.getCurve();
-            case 5:
-                return mast.getGeometry();
+                return sail.isAnti_algae();
             default:
                 return null;
         }
     }
 
-    public void setData(ArrayList<Mast> data) {
+    public void setData(ArrayList<Fin> data) {
         this.data = data;
     }
 }
