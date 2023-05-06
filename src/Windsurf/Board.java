@@ -38,6 +38,8 @@ public class Board extends Equipement {
         this.width = width;
     }
 
+    public String getModel(){return model;}
+    public void setModel(String model){this.model = model;}
     @Override
     public Object[] toObject() {
         return new Object[]{this.getyear(), this.getBrand(), this.model, this.volume, this.width, this.getCategory()};

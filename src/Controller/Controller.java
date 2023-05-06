@@ -1,6 +1,7 @@
 package Controller;
 
 import GUI.JDialogAddBoard;
+import GUI.TableModelBoard;
 import Model.Model;
 import Windsurf.Mast;
 
@@ -58,7 +59,10 @@ public class Controller extends WindowAdapter implements ActionListener {
         dialog.setVisible(true);
         if (dialog.submited()) {
             switch (command) {
-                case BOARD -> model.addBoard(dialog.getNewBoard());
+                case BOARD -> {model.addBoard(dialog.getNewBoard());
+                    TableModelBoard tableModelBoard = TableModelBoard.getInstance(null);
+                    tableModelBoard.updateTable();
+                }
 //                case SAIL -> model.addSail(dialog.);
 //                case WISHBONE -> model.addWishboon();
 //                case MAST -> model.addMast();

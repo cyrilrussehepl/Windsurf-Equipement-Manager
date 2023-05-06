@@ -102,28 +102,31 @@ public class JFrameWEMConsole extends JFrame {
         comboBoxDataSelection.addItem("Fins");
 
         //table
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel defaultTableModel = new DefaultTableModel();
+        Model model = Model.getInstance();
+        TableModelBoard tableModelBoard = TableModelBoard.getInstance(model.getBoards());
+        for(int i =0 ; i<10; i++)
+            model.addBoard(new Board(2022, "Fanatic", Equipement.Category.PLANCHE, 100, 80, "Falcon"));
+//        Board testBoard = new Board(2020, "Starboard", Equipement.Category.PLANCHE, 110, 80, "Futura");
 
-        Board testBoard = new Board(2020, "Starboard", Equipement.Category.PLANCHE, 110, 80, "Futura");
-
-        Object[][] dataBoardTest = {{2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-                testBoard.toObject()
-        };
-        model.setDataVector(dataBoardTest, GUIData.columnBoard);
-        tableData.setModel(model);
+//        Object[][] dataBoardTest = {{2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
+//                testBoard.toObject()
+//        };
+//        defaultTableModel.setDataVector(dataBoardTest, GUIData.columnBoard);
+        tableData.setModel(tableModelBoard);
 
         //window size definition and init window position
         setSize(800,600);
