@@ -150,6 +150,10 @@ public class JFrameWEMConsole extends JFrame {
                 TableModelSail tableModelSail = TableModelSail.getInstance(model.getSails());
                 tableData.setModel(tableModelSail);
             }
+            case 2 ->{
+                TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(model.getWishboons());
+                tableData.setModel(tableModelWishbone);
+            }
         }
     }
 

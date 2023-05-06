@@ -64,7 +64,7 @@ public class Model implements Serializable {
 
     //Wishbone
     public void addWishboon(Wishbone wishbone) {
-        Model.this.wishbones.add(wishbone);
+        wishbones.add(wishbone);
     }
 
     public void removeWishboon(int index) {
@@ -72,7 +72,7 @@ public class Model implements Serializable {
     }
 
     public void updateWishboon(int index, Wishbone wishbone) {
-        Model.this.wishbones.set(index, wishbone);
+        wishbones.set(index, wishbone);
     }
 
     public ArrayList<Wishbone> getWishboons() {
@@ -81,7 +81,7 @@ public class Model implements Serializable {
 
     //Mast
     public void addMast(Mast mast) {
-        Model.this.masts.add(mast);
+        masts.add(mast);
     }
 
     public void removeMast(int index) {
@@ -89,7 +89,7 @@ public class Model implements Serializable {
     }
 
     public void updateMast(int index, Mast mast) {
-        Model.this.masts.set(index, mast);
+        masts.set(index, mast);
     }
 
     public ArrayList<Mast> getMasts() {
@@ -98,7 +98,7 @@ public class Model implements Serializable {
 
     //Fin
     public void addFin(Fin fin) {
-        Model.this.fins.add(fin);
+        fins.add(fin);
     }
 
     public void removeFin(int index) {
@@ -106,7 +106,7 @@ public class Model implements Serializable {
     }
 
     public void updateFin(int index, Fin fin) {
-        Model.this.fins.set(index, fin);
+        fins.set(index, fin);
     }
 
     public ArrayList<Fin> getFins() {
@@ -115,7 +115,7 @@ public class Model implements Serializable {
 
     //Foil
     public void addFoil(Foil foil) {
-        Model.this.foils.add(foil);
+        foils.add(foil);
     }
 
     public void removeFoil(int index) {
@@ -123,7 +123,7 @@ public class Model implements Serializable {
     }
 
     public void updateFoil(int index, Foil foil) {
-        Model.this.foils.set(index, foil);
+        foils.set(index, foil);
     }
 
     public ArrayList<Foil> getFoils() {

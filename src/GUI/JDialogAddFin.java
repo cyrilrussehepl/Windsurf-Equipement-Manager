@@ -10,16 +10,11 @@ public class JDialogAddFin extends JDialog {
     //Variables
     private boolean submit;
     private JPanel mainPanel;
-    private JLabel labelNewFin;
     private JButton buttonAdd;
     private JPanel panelForm;
     private JComboBox comboBoxYear;
-    private JLabel labelYear;
-    private JLabel labelBrand;
     private JTextField textFieldBrand;
-    private JLabel label;
     private JTextField textFieldSize;
-    private JLabel labelBoxType;
     private JComboBox comboBoxBoxType;
     private JCheckBox antiAlgaeCheckBox;
     private JButton buttonCancel;

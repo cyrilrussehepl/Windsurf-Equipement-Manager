@@ -13,16 +13,12 @@ public class JDialogAddWishbone extends JDialog{
     private JComboBox comboBoxYear;
     private JButton buttonCancel;
     private JTextField textFieldBrand;
-    private JLabel labelBrand;
-    private JLabel labelMinSize;
-    private JLabel labelMaxSize;
     private JSpinner spinnerMinSize;
     private JSpinner spinnerMaxSize;
-    private JLabel labelYear;
-    private JLabel labelTitle;
+    private JSpinner spinnerCarbon;
     private JPanel panelForm;
     private boolean submit;
-    private Wishbone wishbone;
+    private Wishbone newWishbone;
 
     public JDialogAddWishbone()
     {
@@ -42,6 +38,7 @@ public class JDialogAddWishbone extends JDialog{
 
         spinnerMinSize.setModel(new SpinnerNumberModel(160, 100, 250, 10));
         spinnerMaxSize.setModel(new SpinnerNumberModel(200, 100, 250, 10));
+        spinnerCarbon.setModel(new SpinnerNumberModel(100, 0, 100, 5));
 
         //Action listeners
         buttonCancel.addActionListener(new ActionListener() {
@@ -50,14 +47,18 @@ public class JDialogAddWishbone extends JDialog{
                 dispose();
             }
         });
-        /*buttonAdd.addActionListener(new ActionListener() {
+        buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                newWishbone = new Wishbone(CommonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex()),
+                        textFieldBrand.getText());
+                newWishbone.setSizeMin(((Integer)spinnerMinSize.getValue()).intValue());
+                newWishbone.setSizeMax(((Integer)spinnerMaxSize.getValue()).intValue());
+                newWishbone.setCarbonPercent(((Integer)spinnerCarbon.getValue()).intValue());
                 submit = true;
                 setVisible(false);
             }
-        });*/
+        });
     }
 
     //Static Methods----------------------------------------------------------------------------------------------------
@@ -66,4 +67,7 @@ public class JDialogAddWishbone extends JDialog{
         dialog.setVisible(true);
         dialog.dispose();
     }
+
+    public Wishbone getNewWishbone(){return newWishbone;}
+    public boolean submited(){return submit;}
 }

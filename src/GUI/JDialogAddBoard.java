@@ -17,20 +17,12 @@ public class JDialogAddBoard extends JDialog {
     protected JComboBox comboBoxYear;
     private JTextField textFieldModel;
     private JButton buttonAdd;
-    private JLabel Title;
     private JPanel panelForm;
-    private JLabel labelYear;
-    private JLabel labelModel;
     private JTextField textFieldBrand;
-    private JLabel labelBrand;
-    private JLabel labelDiscipline;
     private JComboBox comboBoxDiscipline;
-    private JLabel labelVolume;
-    private JLabel labelWidth;
     private JCheckBox foilCheckBox;
     private JButton buttonCancel;
     private JComboBox comboBoxBoxType;
-    private JLabel labelBoxType;
     private JSpinner spinnerVolume;
     private JSpinner spinnerWidth;
 

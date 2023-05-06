@@ -43,7 +43,7 @@ public class Controller extends WindowAdapter implements ActionListener {
             case QUIT -> quit();
             case BOARD -> onNewBoard(command);
             case SAIL -> onNewSail(command);
-//            case WISHBONE:
+            case WISHBONE -> onNewWishbone(command);
 //            case MAST:
 //            case FIN:
             case SAVE -> onSave();
@@ -93,7 +93,6 @@ public class Controller extends WindowAdapter implements ActionListener {
         int returnValue = fileChooser.showSaveDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            System.out.println(selectedFile.getAbsolutePath() + ".txt");
             if (!selectedFile.getName().endsWith(".txt"))
                 filename = selectedFile.getAbsolutePath() + ".txt";
             else
@@ -120,6 +119,17 @@ public class Controller extends WindowAdapter implements ActionListener {
             model.addSail(dialog.getNewSail());
             TableModelSail tableModelSail = TableModelSail.getInstance(null);
             tableModelSail.updateTable();
+        }
+        dialog.dispose();
+    }
+
+    private void onNewWishbone(String command) {
+        JDialogAddWishbone dialog = new JDialogAddWishbone();
+        dialog.setVisible(true);
+        if (dialog.submited()) {
+            model.addWishboon(dialog.getNewWishbone());
+            TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(null);
+            tableModelWishbone.updateTable();
         }
         dialog.dispose();
     }

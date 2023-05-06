@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class TableModelSail extends AbstractTableModel {
     private ArrayList<Sail> data;
     private static TableModelSail instance;
-    public static String[] columnNames = new String[]{"Year", "Brand", "Model", "Area", "Category"};
+    private static String[] columnNames = new String[]{"Year", "Brand", "Model", "Area", "Category"};
 
     public static TableModelSail getInstance(ArrayList<Sail> data) {
         if (instance == null) instance = new TableModelSail(data);

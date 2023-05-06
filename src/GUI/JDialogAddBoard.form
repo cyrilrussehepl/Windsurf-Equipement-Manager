@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="7e26d" class="javax.swing.JLabel" binding="Title">
+      <component id="7e26d" class="javax.swing.JLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="-1" height="50"/>
@@ -32,7 +32,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="e74e7" class="javax.swing.JLabel" binding="labelYear">
+          <component id="e74e7" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -48,7 +48,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="d34fe" class="javax.swing.JLabel" binding="labelModel">
+          <component id="d34fe" class="javax.swing.JLabel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -64,7 +64,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="d3d1d" class="javax.swing.JLabel" binding="labelBrand">
+          <component id="d3d1d" class="javax.swing.JLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -72,7 +72,7 @@
               <text value="Brand"/>
             </properties>
           </component>
-          <component id="928fa" class="javax.swing.JLabel" binding="labelDiscipline">
+          <component id="928fa" class="javax.swing.JLabel">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -86,7 +86,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="212e2" class="javax.swing.JLabel" binding="labelVolume">
+          <component id="212e2" class="javax.swing.JLabel">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -94,7 +94,7 @@
               <text value="Volume"/>
             </properties>
           </component>
-          <component id="236bd" class="javax.swing.JLabel" binding="labelWidth">
+          <component id="236bd" class="javax.swing.JLabel">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -110,7 +110,7 @@
               <text value="Foil"/>
             </properties>
           </component>
-          <component id="f3f93" class="javax.swing.JLabel" binding="labelBoxType">
+          <component id="f3f93" class="javax.swing.JLabel">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="b91a0" class="javax.swing.JLabel" binding="labelTitle">
+      <component id="b91a0" class="javax.swing.JLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -24,7 +24,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="d124d" class="javax.swing.JLabel" binding="labelYear">
+          <component id="d124d" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -32,7 +32,7 @@
               <text value="Year"/>
             </properties>
           </component>
-          <component id="2ef02" class="javax.swing.JLabel" binding="labelBrand">
+          <component id="2ef02" class="javax.swing.JLabel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -40,7 +40,7 @@
               <text value="Brand"/>
             </properties>
           </component>
-          <component id="bd775" class="javax.swing.JLabel" binding="labelLength">
+          <component id="bd775" class="javax.swing.JLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -48,7 +48,7 @@
               <text value="Length"/>
             </properties>
           </component>
-          <component id="3958d" class="javax.swing.JLabel" binding="labelCurveType">
+          <component id="3958d" class="javax.swing.JLabel">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -56,7 +56,7 @@
               <text value="Curve Type"/>
             </properties>
           </component>
-          <component id="1315b" class="javax.swing.JLabel" binding="LabelCarbonPercent">
+          <component id="1315b" class="javax.swing.JLabel">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

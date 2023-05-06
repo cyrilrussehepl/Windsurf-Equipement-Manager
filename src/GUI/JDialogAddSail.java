@@ -30,12 +30,12 @@ public class JDialogAddSail extends JDialog {
     private JLabel labelDiscipline;
     private JLabel labelArea;
     private JLabel labelModel;
-    private JLabel labelMastSize;
-    private JLabel labelWishboneSize;
+    private JLabel labelLuff;
+    private JLabel labelBoom;
     private JLabel labelMastCurve;
     private JLabel labelNbrCamber;
-    private JSpinner spinnerMastSize;
-    private JSpinner spinnerWishboneSize;
+    private JSpinner spinnerLuff;
+    private JSpinner spinnerBoom;
     private JCheckBox checkBoxFoil;
     private Sail newSail;
 
@@ -57,8 +57,8 @@ public class JDialogAddSail extends JDialog {
         CommonLayout.addDisciplineItem(comboBoxDiscipline);
         CommonLayout.addMastCurveItem(comboBoxMastCurve);
         CommonLayout.addNCamberItem(comboBoxNbrCamber);
-        spinnerMastSize.setModel(new SpinnerNumberModel(400, 300, 550, 10));
-        spinnerWishboneSize.setModel(new SpinnerNumberModel(180, 150, 250, 10));
+        spinnerLuff.setModel(new SpinnerNumberModel(400, 300, 550, 10));
+        spinnerBoom.setModel(new SpinnerNumberModel(180, 150, 250, 10));
 
 
         buttonCancel.addActionListener(new ActionListener() {
@@ -84,8 +84,8 @@ public class JDialogAddSail extends JDialog {
                     return;
                 }
                 newSail.setModel(textFieldModel.getText());
-                newSail.setLuff(((Integer) spinnerMastSize.getValue()).intValue());
-                newSail.setBoom(((Integer) spinnerWishboneSize.getValue()).intValue());
+                newSail.setLuff(((Integer) spinnerLuff.getValue()).intValue());
+                newSail.setBoom(((Integer) spinnerBoom.getValue()).intValue());
                 newSail.setMastCurve(Mast.Curve.values()[comboBoxMastCurve.getSelectedIndex()]);
                 newSail.setnCamber(comboBoxNbrCamber.getSelectedIndex());
 

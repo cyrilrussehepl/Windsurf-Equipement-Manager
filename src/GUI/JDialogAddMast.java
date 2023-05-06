@@ -11,16 +11,10 @@ public class JDialogAddMast extends JDialog{
     private JPanel mainPanel;
     private JButton buttonAdd;
     private JButton buttonCancel;
-    private JLabel labelTitle;
     private JPanel panelForm;
-    private JLabel labelYear;
     private JTextField textFieldBrand;
     private JComboBox comboBoxYear;
     private JComboBox comboBoxCurveType;
-    private JLabel labelBrand;
-    private JLabel labelLength;
-    private JLabel labelCurveType;
-    private JLabel LabelCarbonPercent;
     private JCheckBox checkBoxRDM;
     private JSpinner spinnerCarbonPercent;
     private JSpinner spinnerLength;
