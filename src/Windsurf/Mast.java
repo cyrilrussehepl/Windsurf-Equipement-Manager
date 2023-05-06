@@ -1,37 +1,32 @@
 package Windsurf;
 
 public class Mast extends Equipement {
-    @Override
-    public Object[] toObject() {
-        return new Object[0];
-    }
-
     //Variables---------------------------------------------------------------------------------------------------------
     public enum Curve {
         HARD_TOP,
         CONST_CURVE,
         FLEX_TOP
     }
-    public enum DiameterMast{
+    public enum Geometry {
         RDM,
         SDM
     }
     private int length;
     private int carbonPercent;
     private Curve curve;
-    private DiameterMast diameterMast;
+    private Geometry geometry;
 
     //Constructors------------------------------------------------------------------------------------------------------
-    public Mast(int length, int carbonPercent, Curve curve, DiameterMast diameterMast) {
+    public Mast(int length, int carbonPercent, Curve curve, Geometry geometry) {
         super();
         this.length = length;
         this.carbonPercent = carbonPercent;
         this.curve = curve;
-        this.diameterMast = diameterMast;
+        this.geometry = geometry;
     }
 
     public Mast(int length, int carbonPercent){
-        this(length, carbonPercent, Curve.CONST_CURVE, DiameterMast.SDM);
+        this(length, carbonPercent, Curve.CONST_CURVE, Geometry.SDM);
     }
 
     public Mast(int length){

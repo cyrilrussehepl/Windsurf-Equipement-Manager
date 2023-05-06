@@ -1,20 +1,6 @@
 package GUI;
 
 public class GUIData {
-    public static Object[] columnBoard = new Object[]{
-            "Year",
-            "Brand",
-            "Model",
-            "Volume",
-            "Width",
-            "Category"
-    };
-    public static Object[] columnSail = new Object[]{
-            "Year",
-            "Brand",
-            "Model",
-            "Area"
-    };
     public static Object[] columnWishbone = new Object[]{
             "Year",
             "Brand",

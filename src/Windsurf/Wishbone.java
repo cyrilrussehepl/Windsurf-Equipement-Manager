@@ -20,10 +20,6 @@ public class Wishbone extends Equipement {
    public Wishbone(int year, String brand, Category category, Discipline discipline){
        super(year, brand, category, discipline);
    }
-    @Override
-    public Object[] toObject() {
-        return new Object[0];
-    }
 
     //Getters and Setters-----------------------------------------------------------------------------------------------
     public int getSizeMin(){

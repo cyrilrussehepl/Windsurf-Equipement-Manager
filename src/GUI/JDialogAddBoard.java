@@ -59,9 +59,9 @@ public class JDialogAddBoard extends JDialog {
         submit = false;
 
         //combobox add items
-        commonLayout.addYearItem(comboBoxYear);
-        commonLayout.addDisciplineItem(comboBoxDiscipline);
-        commonLayout.addBoxTypeItem(comboBoxBoxType);
+        CommonLayout.addYearItem(comboBoxYear);
+        CommonLayout.addDisciplineItem(comboBoxDiscipline);
+        CommonLayout.addBoxTypeItem(comboBoxBoxType);
 
         spinnerVolume.setModel(new SpinnerNumberModel(100, 0, 200, 1));
         spinnerWidth.setModel(new SpinnerNumberModel(80, 0, 150, 1));
@@ -77,7 +77,7 @@ public class JDialogAddBoard extends JDialog {
         buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                year = commonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex());
+                year = CommonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex());
                 model = textFieldModel.getText();
                 brand = textFieldBrand.getText();
                 discipline = Equipement.Discipline.values()[comboBoxDiscipline.getSelectedIndex()];

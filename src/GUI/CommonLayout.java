@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import java.time.LocalDate;
 
-public class commonLayout {
+public class CommonLayout {
     public static void addYearItem(JComboBox comboBoxYear){
         for(Integer i = LocalDate.now().getYear(); i>=2000; i--)
             comboBoxYear.addItem(i.toString());

@@ -1,6 +1,5 @@
-package GUI;
+package GUI.MyTableModels;
 
-import Controller.Controller;
 import Windsurf.Board;
 
 import javax.swing.table.AbstractTableModel;
@@ -23,11 +22,13 @@ public class TableModelBoard extends AbstractTableModel {
             instance = new TableModelBoard(data);
         return instance;
     }
+
     private TableModelBoard(ArrayList<Board> data) {
         super();
         this.data = data;
     }
-    public void updateTable(){
+
+    public void updateTable() {
         fireTableDataChanged();
     }
 

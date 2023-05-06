@@ -38,7 +38,7 @@ public class JDialogAddWishbone extends JDialog{
         submit = false;
 
         //combobox add items
-        commonLayout.addYearItem(comboBoxYear);
+        CommonLayout.addYearItem(comboBoxYear);
 
         spinnerMinSize.setModel(new SpinnerNumberModel(160, 100, 250, 10));
         spinnerMaxSize.setModel(new SpinnerNumberModel(200, 100, 250, 10));

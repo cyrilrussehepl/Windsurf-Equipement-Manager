@@ -35,8 +35,4 @@ public class FoilMast extends Equipement {
         this.materialType = materialType;
     }
 
-    @Override
-    public Object[] toObject() {
-        return new Object[0];
-    }
 }

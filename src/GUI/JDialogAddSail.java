@@ -52,11 +52,11 @@ public class JDialogAddSail extends JDialog {
         submit = false;
 
         //combobox add items
-        commonLayout.addYearItem(comboBoxYear);
-        commonLayout.addCategoryItem(comboBoxCategory);
-        commonLayout.addDisciplineItem(comboBoxDiscipline);
-        commonLayout.addMastCurveItem(comboBoxMastCurve);
-        commonLayout.addNCamberItem(comboBoxNbrCamber);
+        CommonLayout.addYearItem(comboBoxYear);
+        CommonLayout.addCategoryItem(comboBoxCategory);
+        CommonLayout.addDisciplineItem(comboBoxDiscipline);
+        CommonLayout.addMastCurveItem(comboBoxMastCurve);
+        CommonLayout.addNCamberItem(comboBoxNbrCamber);
         spinnerMastSize.setModel(new SpinnerNumberModel(400, 300, 550, 10));
         spinnerWishboneSize.setModel(new SpinnerNumberModel(180, 150, 250, 10));
 
@@ -71,23 +71,22 @@ public class JDialogAddSail extends JDialog {
         buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                newSail = new Sail(commonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex()),
+                newSail = new Sail(CommonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex()),
                         textFieldBrand.getText(),
-                        checkBoxFoil.isSelected()? Equipement.Category.FOIL: Equipement.Category.PLANCHE,
+                        checkBoxFoil.isSelected() ? Equipement.Category.FOIL : Equipement.Category.PLANCHE,
                         Equipement.Discipline.values()[comboBoxDiscipline.getSelectedIndex()]);
-                try{
+                try {
                     newSail.setArea(Float.parseFloat(textFieldArea.getText()));
-                }catch (NumberFormatException ex){
+                } catch (NumberFormatException ex) {
                     textFieldArea.setBackground(Color.RED);
                     JOptionPane.showMessageDialog(null, "Invalid area parameter!");
                     textFieldArea.setText("");
                     return;
                 }
                 newSail.setModel(textFieldModel.getText());
-                newSail.setMastSize(((Integer)spinnerMastSize.getValue()).intValue());
-                newSail.setWishSize(((Integer)spinnerWishboneSize.getValue()).intValue());
+                newSail.setLuff(((Integer) spinnerMastSize.getValue()).intValue());
+                newSail.setBoom(((Integer) spinnerWishboneSize.getValue()).intValue());
                 newSail.setMastCurve(Mast.Curve.values()[comboBoxMastCurve.getSelectedIndex()]);
-                System.out.println(comboBoxNbrCamber.getSelectedIndex());
                 newSail.setnCamber(comboBoxNbrCamber.getSelectedIndex());
 
                 submit = true;
@@ -103,5 +102,11 @@ public class JDialogAddSail extends JDialog {
         dialog.dispose();
     }
 
-    public Sail getNewSail(){return newSail;}
+    public Sail getNewSail() {
+        return newSail;
+    }
+
+    public boolean submited() {
+        return submit;
+    }
 }

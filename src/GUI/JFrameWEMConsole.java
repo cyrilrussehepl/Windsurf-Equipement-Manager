@@ -1,12 +1,11 @@
 package GUI;
 
 import Controller.Controller;
+import GUI.MyTableModels.*;
 import Model.Model;
-import Windsurf.Board;
-import Windsurf.Equipement;
+import Windsurf.*;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -36,10 +35,10 @@ public class JFrameWEMConsole extends JFrame {
     private JMenuItem itemSaveAs;
     private JMenuItem itemLoad;
     private JMenuItem itemSettings;
+    private int currentComboboxIndex;
 
     //Constructor-------------------------------------------------------------------------------------------------------
-    public JFrameWEMConsole()
-    {
+    public JFrameWEMConsole() {
         //Init window properties
         super();
         setContentPane(mainPanel);
@@ -99,50 +98,59 @@ public class JFrameWEMConsole extends JFrame {
         comboBoxDataSelection.addItem("Boards");
         comboBoxDataSelection.addItem("Sails");
         comboBoxDataSelection.addItem("Wishbones");
+        comboBoxDataSelection.addItem("Masts");
         comboBoxDataSelection.addItem("Fins");
+        currentComboboxIndex = 0;
 
         //table
-        DefaultTableModel defaultTableModel = new DefaultTableModel();
         Model model = Model.getInstance();
         TableModelBoard tableModelBoard = TableModelBoard.getInstance(model.getBoards());
-        for(int i =0 ; i<10; i++)
-            model.addBoard(new Board(2022, "Fanatic", Equipement.Category.PLANCHE, 100, 80, "Falcon"));
-//        Board testBoard = new Board(2020, "Starboard", Equipement.Category.PLANCHE, 110, 80, "Futura");
-
-//        Object[][] dataBoardTest = {{2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                {2022, "Starboard", "Isonic", 117, 70, Equipement.Category.PLANCHE},
-//                testBoard.toObject()
-//        };
-//        defaultTableModel.setDataVector(dataBoardTest, GUIData.columnBoard);
+        //for test
+//        for (int i = 0; i < 10; i++)
+//            model.addBoard(new Board(2022, "Fanatic", Equipement.Category.PLANCHE, 100, 80, "Falcon"));
         tableData.setModel(tableModelBoard);
 
         //window size definition and init window position
-        setSize(800,600);
+        setSize(800, 600);
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation((screen.width - this.getSize().width)/2,(screen.height - this.getSize().height)/2);
+        setLocation((screen.width - this.getSize().width) / 2, (screen.height - this.getSize().height) / 2);
     }
 
     //Methods-----------------------------------------------------------------------------------------------------------
-    public void setController(Controller c){
+    public void setController(Controller c) {
         itemBoard.addActionListener(c);
         itemSail.addActionListener(c);
         itemWishbone.addActionListener(c);
         itemMast.addActionListener(c);
         itemFin.addActionListener(c);
+        itemLoad.addActionListener(c);
+        itemSave.addActionListener(c);
+        itemSaveAs.addActionListener(c);
         itemExit.addActionListener(c);
+        comboBoxDataSelection.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (currentComboboxIndex == comboBoxDataSelection.getSelectedIndex())
+                    return;
+                currentComboboxIndex = comboBoxDataSelection.getSelectedIndex();
+                loadTableData();
+            }
+        });
         this.addWindowListener(c);
+    }
+
+    public void loadTableData() {
+        Model model = Model.getInstance();
+        switch (currentComboboxIndex) {
+            case 0 -> {
+                TableModelBoard tableModelBoard = TableModelBoard.getInstance(model.getBoards());
+                tableData.setModel(tableModelBoard);
+            }
+            case 1 -> {
+                TableModelSail tableModelSail = TableModelSail.getInstance(model.getSails());
+                tableData.setModel(tableModelSail);
+            }
+        }
     }
 
     //Static Methods----------------------------------------------------------------------------------------------------
@@ -150,8 +158,6 @@ public class JFrameWEMConsole extends JFrame {
         JFrameWEMConsole window = new JFrameWEMConsole();
         Controller controller = Controller.getInstance();
         Model model = Model.getInstance();
-//        model.saveModel();
-
         window.setController(controller);
         window.setVisible(true);
     }

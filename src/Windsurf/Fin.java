@@ -26,11 +26,6 @@ public class Fin extends Equipement {
         this(0, BoxType.DEEP_TUTTLE, false);
     }
 
-    @Override
-    public Object[] toObject() {
-        return new Object[0];
-    }
-
     //Getters and Setters-----------------------------------------------------------------------------------------------
     public BoxType getBox_type() {
         return box_type;

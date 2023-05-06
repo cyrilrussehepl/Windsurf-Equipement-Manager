@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Model {
+public class Model implements Serializable {
     //Variables---------------------------------------------------------------------------------------------------------
     private static Model instance;
     private ArrayList<Board> boards = new ArrayList<Board>();
@@ -19,7 +19,6 @@ public class Model {
 
     //Constructors------------------------------------------------------------------------------------------------------
     private Model() {
-
     }
 
     public static Model getInstance() {
@@ -131,38 +130,41 @@ public class Model {
         return foils;
     }
 
-    public void saveModel() {
+    public void save(String filename) {
         try {
-            FileOutputStream fos = new FileOutputStream(new File("testFile.txt"));
+            FileOutputStream fos = new FileOutputStream(new File(filename));
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(this);
+            oos.writeObject(boards);
+            oos.writeObject(sails);
+            oos.writeObject(wishbones);
+            oos.writeObject(masts);
+            oos.writeObject(fins);
             oos.flush();
+            oos.close();
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "Invalid save file");
         } catch (IOException e) {
             System.out.println("Error io");
         }
     }
 
-    public void loadModel(){
-        Model oldInstance = instance;
-        if(instance != null){
-            int ret = JOptionPane.showConfirmDialog(null,"Êtes-vous certain de vouloir charger les données? Toutes données non sauvegardées seront perdues!");
-            if (ret == JOptionPane.NO_OPTION)
-                return;
-        }
-        try{
-            FileInputStream fis = new FileInputStream("testFile.txt");
+    public void load(String filename) {
+        try {
+            FileInputStream fis = new FileInputStream(new File(filename));
             ObjectInputStream ois = new ObjectInputStream(fis);
-            instance = (Model) ois.readObject();
-        }catch (FileNotFoundException e){
-            System.out.println("File not found");
-            instance = oldInstance;
-        }
-        catch (IOException e){
+            boards = (ArrayList<Board>) ois.readObject();
+            sails = (ArrayList<Sail>) ois.readObject();
+            wishbones = (ArrayList<Wishbone>) ois.readObject();
+            masts = (ArrayList<Mast>) ois.readObject();
+            fins = (ArrayList<Fin>) ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "Invalid load file");
+        } catch (IOException e) {
             System.out.println("Io exception");
-            instance = oldInstance;
-        }catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             System.out.println("Class not found");
-            instance = oldInstance;
         }
     }
 }

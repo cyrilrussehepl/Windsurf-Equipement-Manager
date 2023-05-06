@@ -1,9 +1,10 @@
 package Windsurf;
 
+import java.io.Serializable;
 import java.util.Date;
 
 //public abstract -> get access in Foil package
-public abstract class Equipement {
+public abstract class Equipement implements Serializable {
     //Variables---------------------------------------------------------------------------------------------------------
     private int year = -1;
     private String brand;
@@ -97,5 +98,4 @@ public abstract class Equipement {
         return "year:"+year+";brand:"+brand+";discipline:"+discipline+";date:"+acquisitionDate+";category:"+category+";";
     }
 
-    public abstract Object[] toObject();
 }

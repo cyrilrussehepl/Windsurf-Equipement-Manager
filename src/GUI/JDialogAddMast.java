@@ -37,8 +37,8 @@ public class JDialogAddMast extends JDialog{
         setLocation((screen.width - this.getSize().width)/2,(screen.height - this.getSize().height)/2);
 
         //combobox Setup
-        commonLayout.addYearItem(comboBoxYear);
-        commonLayout.addMastCurveItem(comboBoxCurveType);
+        CommonLayout.addYearItem(comboBoxYear);
+        CommonLayout.addMastCurveItem(comboBoxCurveType);
 
         spinnerCarbonPercent.setModel(new SpinnerNumberModel(100, 0, 100, 1));
         spinnerLength.setModel(new SpinnerNumberModel(400, 300, 600, 10));

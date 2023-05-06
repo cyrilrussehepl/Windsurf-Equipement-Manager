@@ -66,8 +66,4 @@ public class Foil extends Equipement {
       return "Ceci est un foil";
    }
 
-    @Override
-    public Object[] toObject() {
-        return new Object[0];
-    }
 }

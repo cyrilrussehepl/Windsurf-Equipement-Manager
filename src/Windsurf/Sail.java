@@ -3,25 +3,25 @@ package Windsurf;
 public class Sail extends Equipement {
     //Variables---------------------------------------------------------------------------------------------------------
     private float area;
-    private int mastSize;
-    private int wishSize;
+    private int luff;
+    private int boom;
     private Mast.Curve mastCurve;
     private String model;
     private int nCamber;
 
     //Constructors------------------------------------------------------------------------------------------------------
-    public Sail(float area, int mastSize, int wishSize, Mast.Curve mastCurve, String model, int nCamber) {
+    public Sail(float area, int luff, int boom, Mast.Curve mastCurve, String model, int nCamber) {
         super();
         this.area = area;
-        this.mastSize = mastSize;
-        this.wishSize = wishSize;
+        this.luff = luff;
+        this.boom = boom;
         this.mastCurve = mastCurve;
         this.model = model;
         this.nCamber = nCamber;
     }
 
-    public Sail(float area, int mastSize, int wishSize, String model){
-        this(area, mastSize, wishSize, Mast.Curve.CONST_CURVE, model, 0);
+    public Sail(float area, int luff, int boom, String model){
+        this(area, luff, boom, Mast.Curve.CONST_CURVE, model, 0);
     }
 
     public Sail(int year, String brand, Category category, Discipline discipline){
@@ -37,20 +37,20 @@ public class Sail extends Equipement {
         this.area = area;
     }
 
-    public int getMastSize() {
-        return mastSize;
+    public int getLuff() {
+        return luff;
     }
 
-    public void setMastSize(int mastSize) {
-        this.mastSize = mastSize;
+    public void setLuff(int luff) {
+        this.luff = luff;
     }
 
-    public int getWishSize() {
-        return wishSize;
+    public int getBoom() {
+        return boom;
     }
 
-    public void setWishSize(int wishSize) {
-        this.wishSize = wishSize;
+    public void setBoom(int boom) {
+        this.boom = boom;
     }
 
     public Mast.Curve getMastCurve() {
@@ -75,11 +75,6 @@ public class Sail extends Equipement {
 
     public void setnCamber(int nCamber) {
         this.nCamber = nCamber;
-    }
-
-    @Override
-    public Object[] toObject() {
-        return new Object[0];
     }
 
 
