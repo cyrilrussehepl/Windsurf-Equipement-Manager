@@ -3,7 +3,6 @@ package GUI;
 import Controller.Controller;
 import GUI.MyTableModels.*;
 import Model.Model;
-import Windsurf.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +17,8 @@ public class JFrameWEMConsole extends JFrame {
     private JList listDataSelectedItem;
     private JLabel labelImg;
     private JScrollPane scrollPaneTableDataContainer;
+    private JButton buttonDelete;
+    private JButton buttonUpdate;
     private JMenuBar menuBar;
     private JMenu menuNew;
     private JMenu menuSettings;
@@ -138,9 +139,20 @@ public class JFrameWEMConsole extends JFrame {
                     return;
                 currentComboboxIndex = comboBoxDataSelection.getSelectedIndex();
                 loadTableData();
+                changeImg();
             }
         });
         this.addWindowListener(c);
+    }
+
+    private void changeImg() {
+        switch (currentComboboxIndex) {
+            case 0 -> labelImg.setIcon(new ImageIcon("src/img/Board.png"));
+            case 1 -> labelImg.setIcon(new ImageIcon("src/img/Sail.png"));
+            case 2 -> labelImg.setIcon(new ImageIcon("src/img/Wishbone.png"));
+            case 3 -> labelImg.setIcon(new ImageIcon("src/img/Mast.png"));
+            case 4 -> labelImg.setIcon(new ImageIcon("src/img/Fin.png"));
+        }
     }
 
     public void loadTableData() {
@@ -154,15 +166,15 @@ public class JFrameWEMConsole extends JFrame {
                 TableModelSail tableModelSail = TableModelSail.getInstance(model.getSails());
                 tableData.setModel(tableModelSail);
             }
-            case 2 ->{
+            case 2 -> {
                 TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(model.getWishboons());
                 tableData.setModel(tableModelWishbone);
             }
-            case 3 ->{
+            case 3 -> {
                 TableModelMast tableModelMast = TableModelMast.getInstance(model.getMasts());
                 tableData.setModel(tableModelMast);
             }
-            case 4 ->{
+            case 4 -> {
                 TableModelFin tableModelFin = TableModelFin.getInstance(model.getFins());
                 tableData.setModel(tableModelFin);
             }
