@@ -16,6 +16,7 @@ public class Model implements Serializable {
     private ArrayList<Mast> masts = new ArrayList<Mast>();
     private ArrayList<Fin> fins = new ArrayList<Fin>();
     private ArrayList<Foil> foils = new ArrayList<Foil>();
+    private int currentTable;
 
     //Constructors------------------------------------------------------------------------------------------------------
     private Model() {
@@ -166,5 +167,13 @@ public class Model implements Serializable {
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found");
         }
+    }
+
+    public int getCurrentTable() {
+        return currentTable;
+    }
+
+    public void setCurrentTable(int currentTable) {
+        this.currentTable = currentTable;
     }
 }

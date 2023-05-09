@@ -7,6 +7,7 @@ import Model.Model;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 public class JFrameWEMConsole extends JFrame {
     //Variables---------------------------------------------------------------------------------------------------------
@@ -21,9 +22,8 @@ public class JFrameWEMConsole extends JFrame {
     private JButton buttonUpdate;
     private JMenuBar menuBar;
     private JMenu menuNew;
-    private JMenu menuSettings;
-    private JMenu menuHelp;
     private JMenu subMenuAdd;
+    private JMenu menuSettings;
     private JMenuItem itemBoard;
     private JMenuItem itemSail;
     private JMenuItem itemWishbone;
@@ -77,22 +77,19 @@ public class JFrameWEMConsole extends JFrame {
         menuNew.addSeparator();
         menuNew.add(itemExit);
         //menuSettings
-        itemSettings = new JMenuItem("Settings");
         menuSettings = new JMenu("Settings");
-
-        menuSettings.add(itemSettings);
+        itemSettings = new JMenuItem("Settings");
         //menuHelp
-        menuHelp = new JMenu("Help");
         itemHelp = new JMenuItem("Help");
         itemAbout = new JMenuItem("About");
 
-        menuHelp.add(itemHelp);
-        menuHelp.addSeparator();
-        menuHelp.add(itemAbout);
+        menuSettings.add(itemSettings);
+        menuSettings.addSeparator();
+        menuSettings.add(itemHelp);
+        menuSettings.add(itemAbout);
         //Add menus to menuBar
         menuBar.add(menuNew);
         menuBar.add(menuSettings);
-        menuBar.add(menuHelp);
         this.setJMenuBar(menuBar);
 
         //ComboBoxSelection
@@ -132,12 +129,19 @@ public class JFrameWEMConsole extends JFrame {
         itemSave.addActionListener(c);
         itemSaveAs.addActionListener(c);
         itemExit.addActionListener(c);
+        itemSettings.addActionListener(c);
+        itemHelp.addActionListener(c);
+        itemAbout.addActionListener(c);
+        buttonUpdate.addActionListener(c);
+        buttonDelete.addActionListener(c);
+        c.setTable(tableData);
         comboBoxDataSelection.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (currentComboboxIndex == comboBoxDataSelection.getSelectedIndex())
                     return;
                 currentComboboxIndex = comboBoxDataSelection.getSelectedIndex();
+                Model.getInstance().setCurrentTable(currentComboboxIndex);
                 loadTableData();
                 changeImg();
             }

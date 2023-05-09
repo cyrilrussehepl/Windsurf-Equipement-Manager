@@ -2,12 +2,13 @@ package Controller;
 
 import GUI.*;
 import GUI.MyTableModels.*;
-import Model.Model;
+import Model.*;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.*;
 import java.io.*;
+import java.util.Properties;
 
 public class Controller extends WindowAdapter implements ActionListener {
     //Variables---------------------------------------------------------------------------------------------------------
@@ -20,9 +21,12 @@ public class Controller extends WindowAdapter implements ActionListener {
     private final static String SAVE = "Save";
     private final static String SAVE_AS = "Save As";
     private final static String LOAD = "Load";
+    private final static String DELETE = "Delete";
     private static Controller instance;
     private static String filename;
     private Model model;
+    private JTable table;
+    private static Settings settings;
 
     //Constructor private for singleton class---------------------------------------------------------------------------
     private Controller() {
@@ -30,8 +34,10 @@ public class Controller extends WindowAdapter implements ActionListener {
     }
 
     public static Controller getInstance() {
-        if (instance == null)
+        if (instance == null) {
             instance = new Controller();
+            settings = new Settings();
+        }
         return instance;
     }
 
@@ -49,8 +55,38 @@ public class Controller extends WindowAdapter implements ActionListener {
             case SAVE -> onSave();
             case SAVE_AS -> onSaveAs();
             case LOAD -> onLoad();
+            case DELETE -> onDelete();
         }
+    }
 
+    private void onDelete(){
+        if(table.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(null, "Aucune ligne sélectionnée!");
+            return;
+        }
+        switch (model.getCurrentTable()){
+            case 0 -> {
+                TableModelBoard tableModelBoard = TableModelBoard.getInstance(null);
+                model.removeBoard(table.getSelectedRow());
+                tableModelBoard.updateTable();
+            }case 1 -> {
+                TableModelSail tableModelSail = TableModelSail.getInstance(null);
+                model.removeSail(table.getSelectedRow());
+                tableModelSail.updateTable();
+            }case 2 -> {
+                TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(null);
+                model.removeWishboon(table.getSelectedRow());
+                tableModelWishbone.updateTable();
+            }case 3 -> {
+                TableModelMast tableModelMast = TableModelMast.getInstance(null);
+                model.removeMast(table.getSelectedRow());
+                tableModelMast.updateTable();
+            }case 4 -> {
+                TableModelFin tableModelFin = TableModelFin.getInstance(null);
+                model.removeFin(table.getSelectedRow());
+                tableModelFin.updateTable();
+            }
+        }
     }
 
     private void onLoad() {
@@ -61,7 +97,7 @@ public class Controller extends WindowAdapter implements ActionListener {
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichiers Texte", "txt");
         fileChooser.setFileFilter(filter);
-        fileChooser.setCurrentDirectory(new File("B:\\1-Etudes\\HEPL\\Java\\Projet-WEM\\"));
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
 
         int returnValue = fileChooser.showSaveDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
@@ -100,7 +136,7 @@ public class Controller extends WindowAdapter implements ActionListener {
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Fichiers Texte", "txt");
         fileChooser.setFileFilter(filter);
-        fileChooser.setCurrentDirectory(new File("B:\\1-Etudes\\HEPL\\Java\\Projet-WEM\\"));
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
 
         int returnValue = fileChooser.showSaveDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
@@ -177,5 +213,9 @@ public class Controller extends WindowAdapter implements ActionListener {
         int ret = JOptionPane.showConfirmDialog(null, "Do you really want to quit?");
         if (ret == JOptionPane.YES_OPTION)
             System.exit(0);
+    }
+
+    public void setTable(JTable table) {
+        this.table = table;
     }
 }
