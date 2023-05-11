@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class TableModelBoard extends AbstractTableModel {
     private ArrayList<Board> data;
-    private static TableModelBoard instance;
     public static String[] columnNames = new String[]{
             "Year",
             "Brand",
@@ -17,13 +16,7 @@ public class TableModelBoard extends AbstractTableModel {
             "Category"
     };
 
-    public static TableModelBoard getInstance(ArrayList<Board> data) {
-        if (instance == null)
-            instance = new TableModelBoard(data);
-        return instance;
-    }
-
-    private TableModelBoard(ArrayList<Board> data) {
+    public TableModelBoard(ArrayList<Board> data) {
         super();
         this.data = data;
     }

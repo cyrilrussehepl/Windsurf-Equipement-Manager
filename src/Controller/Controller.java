@@ -8,7 +8,6 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.*;
 import java.io.*;
-import java.util.Properties;
 
 public class Controller extends WindowAdapter implements ActionListener {
     //Variables---------------------------------------------------------------------------------------------------------
@@ -23,19 +22,22 @@ public class Controller extends WindowAdapter implements ActionListener {
     private final static String LOAD = "Load";
     private final static String DELETE = "Delete";
     private final static String SETTINGS = "Settings";
+    private final static String UPDATE = "Update";
     private static Controller instance;
     private static String filename;
     private Model model;
+    private JFrameWEMConsole mainWindow;
     private static Settings settings;
-    private JTable table;
+
     //Constructor private for singleton class---------------------------------------------------------------------------
-    private Controller() {
+    private Controller(JFrameWEMConsole mainWindow) {
         model = Model.getInstance();
+        this.mainWindow = mainWindow;
     }
 
-    public static Controller getInstance() {
+    public static Controller getInstance(JFrameWEMConsole mainWindow) {
         if (instance == null) {
-            instance = new Controller();
+            instance = new Controller(mainWindow);
             settings = new Settings();
         }
         return instance;
@@ -47,57 +49,43 @@ public class Controller extends WindowAdapter implements ActionListener {
         String command = e.getActionCommand();
         switch (command) {
             case QUIT -> quit();
-            case BOARD -> onNewBoard(command);
-            case SAIL -> onNewSail(command);
-            case WISHBONE -> onNewWishbone(command);
-            case MAST-> onNewMast(command);
-            case FIN-> onNewFin(command);
+            case BOARD -> onNewBoard();
+            case SAIL -> onNewSail();
+            case WISHBONE -> onNewWishbone();
+            case MAST -> onNewMast();
+            case FIN -> onNewFin();
             case SAVE -> onSave();
             case SAVE_AS -> onSaveAs();
             case LOAD -> onLoad();
             case DELETE -> onDelete();
             case SETTINGS -> onSettings();
+            case UPDATE -> onUpdate();
         }
     }
 
-    private void onSettings(){
+    private void onSettings() {
         JDialogSettings dialog = new JDialogSettings();
         dialog.setVisible(true);
         if (dialog.submited()) {
             settings.setProperty("directory", dialog.getFilename());
-            settings.setProperty("theme", dialog.isDarkTheme()?"dark":"light");
+            settings.setProperty("theme", dialog.isDarkTheme() ? "dark" : "light");
         }
         dialog.dispose();
     }
 
-    private void onDelete(){
-        if(table.getSelectedRow() == -1){
+    private void onDelete() {
+        if (mainWindow.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Aucune ligne sélectionnée!");
             return;
         }
-        switch (model.getCurrentTable()){
-            case 0 -> {
-                TableModelBoard tableModelBoard = TableModelBoard.getInstance(null);
-                model.removeBoard(table.getSelectedRow());
-                tableModelBoard.updateTable();
-            }case 1 -> {
-                TableModelSail tableModelSail = TableModelSail.getInstance(null);
-                model.removeSail(table.getSelectedRow());
-                tableModelSail.updateTable();
-            }case 2 -> {
-                TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(null);
-                model.removeWishboon(table.getSelectedRow());
-                tableModelWishbone.updateTable();
-            }case 3 -> {
-                TableModelMast tableModelMast = TableModelMast.getInstance(null);
-                model.removeMast(table.getSelectedRow());
-                tableModelMast.updateTable();
-            }case 4 -> {
-                TableModelFin tableModelFin = TableModelFin.getInstance(null);
-                model.removeFin(table.getSelectedRow());
-                tableModelFin.updateTable();
-            }
+        switch (mainWindow.getCurrentTableEquipmentType()) {
+            case BOARD -> model.removeBoard(mainWindow.getSelectedRow());
+            case SAIL -> model.removeSail(mainWindow.getSelectedRow());
+            case WISHBONE -> model.removeWishboon(mainWindow.getSelectedRow());
+            case MAST -> model.removeMast(mainWindow.getSelectedRow());
+            case FIN -> model.removeFin(mainWindow.getSelectedRow());
         }
+        mainWindow.refreshTable();
     }
 
     private void onLoad() {
@@ -118,21 +106,7 @@ public class Controller extends WindowAdapter implements ActionListener {
                 return;
             }
             model.load(selectedFile.getAbsolutePath());
-            TableModelBoard tableModelBoard = TableModelBoard.getInstance(null);
-            tableModelBoard.setData(model.getBoards());
-            TableModelSail tableModelSail = TableModelSail.getInstance(null);
-            tableModelSail.setData(model.getSails());
-            TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(null);
-            tableModelWishbone.setData(model.getWishboons());
-            TableModelMast tableModelMast = TableModelMast.getInstance(null);
-            tableModelMast.setData(model.getMasts());
-            TableModelFin tableModelFin = TableModelFin.getInstance(null);
-            tableModelFin.setData(model.getFins());
-            tableModelBoard.updateTable();
-            tableModelSail.updateTable();
-            tableModelWishbone.updateTable();
-            tableModelMast.updateTable();
-            tableModelFin.updateTable();
+            mainWindow.loadNewData(model.getBoards(), model.getSails(), model.getWishboons(), model.getMasts(), model.getFins());
         }
     }
 
@@ -160,57 +134,69 @@ public class Controller extends WindowAdapter implements ActionListener {
         }
     }
 
-    private void onNewBoard(String command) {
+    private void onUpdate() {
+        if (mainWindow.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "No selected line to update");
+        }
+        switch (mainWindow.getCurrentTableEquipmentType()) {
+            case BOARD -> {
+                JDialogAddBoard dialog = new JDialogAddBoard();
+                dialog.setVisible(true);
+                if (dialog.submited()) {
+                    model.updateBoard(mainWindow.getSelectedRow(), dialog.getNewBoard());
+                    mainWindow.refreshTable();
+                }
+                dialog.dispose();
+            }
+        }
+    }
+
+    private void onNewBoard() {
         JDialogAddBoard dialog = new JDialogAddBoard();
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addBoard(dialog.getNewBoard());
-            TableModelBoard tableModelBoard = TableModelBoard.getInstance(null);
-            tableModelBoard.updateTable();
+            mainWindow.refreshTable();
         }
         dialog.dispose();
     }
 
-    private void onNewSail(String command) {
+    private void onNewSail() {
         JDialogAddSail dialog = new JDialogAddSail();
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addSail(dialog.getNewSail());
-            TableModelSail tableModelSail = TableModelSail.getInstance(null);
-            tableModelSail.updateTable();
+            mainWindow.updateTableData();
         }
         dialog.dispose();
     }
 
-    private void onNewWishbone(String command) {
+    private void onNewWishbone() {
         JDialogAddWishbone dialog = new JDialogAddWishbone();
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addWishboon(dialog.getNewWishbone());
-            TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(null);
-            tableModelWishbone.updateTable();
+            mainWindow.updateTableData();
         }
         dialog.dispose();
     }
 
-    private void onNewMast(String command) {
+    private void onNewMast() {
         JDialogAddMast dialog = new JDialogAddMast();
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addMast(dialog.getNewMast());
-            TableModelMast tableModelMast = TableModelMast.getInstance(null);
-            tableModelMast.updateTable();
+            mainWindow.updateTableData();
         }
         dialog.dispose();
     }
 
-    private void onNewFin(String command) {
+    private void onNewFin() {
         JDialogAddFin dialog = new JDialogAddFin();
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addFin(dialog.getNewFin());
-            TableModelFin tableModelFin = TableModelFin.getInstance(null);
-            tableModelFin.updateTable();
+            mainWindow.updateTableData();
         }
         dialog.dispose();
     }
@@ -224,9 +210,5 @@ public class Controller extends WindowAdapter implements ActionListener {
         int ret = JOptionPane.showConfirmDialog(null, "Do you really want to quit?");
         if (ret == JOptionPane.YES_OPTION)
             System.exit(0);
-    }
-
-    public void setTable(JTable table) {
-        this.table = table;
     }
 }

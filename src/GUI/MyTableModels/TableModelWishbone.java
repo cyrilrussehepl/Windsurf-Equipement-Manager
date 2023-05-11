@@ -8,13 +8,9 @@ import java.util.ArrayList;
 
 public class TableModelWishbone extends AbstractTableModel {
     private ArrayList<Wishbone> data;
-    private static TableModelWishbone instance;
     private static String[] columnNames = new String[]{"Year", "Brand", "Min", "Max", "Carbon"};
-    public static TableModelWishbone getInstance(ArrayList<Wishbone> data){
-        if(instance==null)instance = new TableModelWishbone(data);
-        return instance;
-    }
-    private TableModelWishbone(ArrayList<Wishbone> data){
+
+    public TableModelWishbone(ArrayList<Wishbone> data){
         super();
         this.data = data;
     }

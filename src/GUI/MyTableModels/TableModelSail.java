@@ -7,15 +7,9 @@ import java.util.ArrayList;
 
 public class TableModelSail extends AbstractTableModel {
     private ArrayList<Sail> data;
-    private static TableModelSail instance;
     private static String[] columnNames = new String[]{"Year", "Brand", "Model", "Area", "Category"};
 
-    public static TableModelSail getInstance(ArrayList<Sail> data) {
-        if (instance == null) instance = new TableModelSail(data);
-        return instance;
-    }
-
-    private TableModelSail(ArrayList<Sail> data) {
+    public TableModelSail(ArrayList<Sail> data) {
         super();
         this.data = data;
     }

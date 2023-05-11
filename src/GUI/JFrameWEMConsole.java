@@ -3,11 +3,12 @@ package GUI;
 import Controller.Controller;
 import GUI.MyTableModels.*;
 import Model.Model;
+import Windsurf.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class JFrameWEMConsole extends JFrame {
     //Variables---------------------------------------------------------------------------------------------------------
@@ -36,7 +37,20 @@ public class JFrameWEMConsole extends JFrame {
     private JMenuItem itemSaveAs;
     private JMenuItem itemLoad;
     private JMenuItem itemSettings;
-    private int currentComboboxIndex;
+    private TableType currentTableEquipmentType;
+    private TableModelBoard tableModelBoard;
+    private TableModelSail tableModelSail;
+    private TableModelWishbone tableModelWishbone;
+    private TableModelMast tableModelMast;
+    private TableModelFin tableModelFin;
+
+    public enum TableType{
+        BOARD,
+        SAIL,
+        WISHBONE,
+        MAST,
+        FIN
+    }
 
     //Constructor-------------------------------------------------------------------------------------------------------
     public JFrameWEMConsole() {
@@ -98,18 +112,15 @@ public class JFrameWEMConsole extends JFrame {
         comboBoxDataSelection.addItem("Wishbones");
         comboBoxDataSelection.addItem("Masts");
         comboBoxDataSelection.addItem("Fins");
-        currentComboboxIndex = 0;
+        currentTableEquipmentType = TableType.BOARD;
 
         //table
         Model model = Model.getInstance();
-        TableModelBoard tableModelBoard = TableModelBoard.getInstance(model.getBoards());
-        TableModelSail tableModelSail = TableModelSail.getInstance(model.getSails());
-        TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(model.getWishboons());
-        TableModelMast tableModelMast = TableModelMast.getInstance(model.getMasts());
-        TableModelFin tableModelFin = TableModelFin.getInstance(model.getFins());
-        //for test
-//        for (int i = 0; i < 10; i++)
-//            model.addBoard(new Board(2022, "Fanatic", Equipement.Category.PLANCHE, 100, 80, "Falcon"));
+        tableModelBoard = new TableModelBoard(model.getBoards());
+        tableModelSail = new TableModelSail(model.getSails());
+        tableModelWishbone = new TableModelWishbone(model.getWishboons());
+        tableModelMast = new TableModelMast(model.getMasts());
+        tableModelFin = new TableModelFin(model.getFins());
         tableData.setModel(tableModelBoard);
 
         //window size definition and init window position
@@ -134,15 +145,13 @@ public class JFrameWEMConsole extends JFrame {
         itemAbout.addActionListener(c);
         buttonUpdate.addActionListener(c);
         buttonDelete.addActionListener(c);
-        c.setTable(tableData);
         comboBoxDataSelection.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (currentComboboxIndex == comboBoxDataSelection.getSelectedIndex())
+                if (currentTableEquipmentType == TableType.values()[comboBoxDataSelection.getSelectedIndex()])
                     return;
-                currentComboboxIndex = comboBoxDataSelection.getSelectedIndex();
-                Model.getInstance().setCurrentTable(currentComboboxIndex);
-                loadTableData();
+                currentTableEquipmentType = TableType.values()[comboBoxDataSelection.getSelectedIndex()];
+                updateTableData();
                 changeImg();
             }
         });
@@ -150,47 +159,60 @@ public class JFrameWEMConsole extends JFrame {
     }
 
     private void changeImg() {
-        switch (currentComboboxIndex) {
-            case 0 -> labelImg.setIcon(new ImageIcon("src/img/Board.png"));
-            case 1 -> labelImg.setIcon(new ImageIcon("src/img/Sail.png"));
-            case 2 -> labelImg.setIcon(new ImageIcon("src/img/Wishbone.png"));
-            case 3 -> labelImg.setIcon(new ImageIcon("src/img/Mast.png"));
-            case 4 -> labelImg.setIcon(new ImageIcon("src/img/Fin.png"));
+        switch (currentTableEquipmentType) {
+            case BOARD -> labelImg.setIcon(new ImageIcon("src/img/Board.png"));
+            case SAIL -> labelImg.setIcon(new ImageIcon("src/img/Sail.png"));
+            case WISHBONE -> labelImg.setIcon(new ImageIcon("src/img/Wishbone.png"));
+            case MAST -> labelImg.setIcon(new ImageIcon("src/img/Mast.png"));
+            case FIN -> labelImg.setIcon(new ImageIcon("src/img/Fin.png"));
         }
     }
 
-    public void loadTableData() {
-        Model model = Model.getInstance();
-        switch (currentComboboxIndex) {
-            case 0 -> {
-                TableModelBoard tableModelBoard = TableModelBoard.getInstance(model.getBoards());
-                tableData.setModel(tableModelBoard);
-            }
-            case 1 -> {
-                TableModelSail tableModelSail = TableModelSail.getInstance(model.getSails());
-                tableData.setModel(tableModelSail);
-            }
-            case 2 -> {
-                TableModelWishbone tableModelWishbone = TableModelWishbone.getInstance(model.getWishboons());
-                tableData.setModel(tableModelWishbone);
-            }
-            case 3 -> {
-                TableModelMast tableModelMast = TableModelMast.getInstance(model.getMasts());
-                tableData.setModel(tableModelMast);
-            }
-            case 4 -> {
-                TableModelFin tableModelFin = TableModelFin.getInstance(model.getFins());
-                tableData.setModel(tableModelFin);
-            }
+    public void updateTableData() {
+        switch (currentTableEquipmentType) {
+            case BOARD -> tableData.setModel(tableModelBoard);
+            case SAIL -> tableData.setModel(tableModelSail);
+            case WISHBONE -> tableData.setModel(tableModelWishbone);
+            case MAST -> tableData.setModel(tableModelMast);
+            case FIN -> tableData.setModel(tableModelFin);
         }
+    }
+
+    public void refreshTable() {
+        switch (currentTableEquipmentType){
+            case BOARD -> tableModelBoard.updateTable();
+            case SAIL -> tableModelSail.updateTable();
+            case WISHBONE -> tableModelWishbone.updateTable();
+            case MAST -> tableModelMast.updateTable();
+            case FIN -> tableModelFin.updateTable();
+        }
+    }
+
+    public void loadNewData(ArrayList<Board> boards, ArrayList<Sail> sails, ArrayList<Wishbone> wishbones, ArrayList<Mast> masts, ArrayList<Fin> fins){
+        tableModelBoard.setData(boards);
+        tableModelSail.setData(sails);
+        tableModelWishbone.setData(wishbones);
+        tableModelMast.setData(masts);
+        tableModelFin.setData(fins);
+        updateTableData();
     }
 
     //Static Methods----------------------------------------------------------------------------------------------------
     public static void main(String[] args) {
         JFrameWEMConsole window = new JFrameWEMConsole();
-        Controller controller = Controller.getInstance();
+        Controller controller = Controller.getInstance(window);
         Model model = Model.getInstance();
         window.setController(controller);
         window.setVisible(true);
     }
+
+    //Getters
+    public TableType getCurrentTableEquipmentType(){
+        return currentTableEquipmentType;
+    }
+
+    public int getSelectedRow(){
+        return tableData.getSelectedRow();
+    }
+
 }

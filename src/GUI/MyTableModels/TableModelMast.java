@@ -7,15 +7,9 @@ import java.util.ArrayList;
 
 public class TableModelMast extends AbstractTableModel {
     private ArrayList<Mast> data;
-    private static TableModelMast instance;
     private static String[] columnNames = new String[]{"Year", "Brand", "Length", "Carbon Percent", "Curve", "Geometry"};
 
-    public static TableModelMast getInstance(ArrayList<Mast> data) {
-        if (instance == null) instance = new TableModelMast(data);
-        return instance;
-    }
-
-    private TableModelMast(ArrayList<Mast> data) {
+    public TableModelMast(ArrayList<Mast> data) {
         super();
         this.data = data;
     }

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class TableModelFin extends AbstractTableModel {
     private ArrayList<Fin> data;
-    private static TableModelFin instance;
     private static String[] columnNames = new String[]{
             "Year",
             "Brand",
@@ -16,12 +15,7 @@ public class TableModelFin extends AbstractTableModel {
             "Anti-algae"
     };
 
-    public static TableModelFin getInstance(ArrayList<Fin> data) {
-        if (instance == null) instance = new TableModelFin(data);
-        return instance;
-    }
-
-    private TableModelFin(ArrayList<Fin> data) {
+    public TableModelFin(ArrayList<Fin> data) {
         super();
         this.data = data;
     }
