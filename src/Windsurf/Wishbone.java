@@ -1,6 +1,6 @@
 package Windsurf;
 
-public class Wishbone extends Equipement {
+public class Wishbone extends Equipment {
     //Variables---------------------------------------------------------------------------------------------------------
     private int[] size = new int[2];
     private int carbonPercent;

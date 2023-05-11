@@ -1,10 +1,10 @@
 package Windsurf.Foil;
 
-import Windsurf.Equipement;
+import Windsurf.Equipment;
 
 import java.util.ArrayList;
 
-public class Foil extends Equipement {
+public class Foil extends Equipment {
    //Variables----------------------------------------------------------------------------------------------------------
    private String model;
    private FoilMast foilMast;

@@ -1,6 +1,6 @@
 package Windsurf;
 
-public class Sail extends Equipement {
+public class Sail extends Equipment {
     //Variables---------------------------------------------------------------------------------------------------------
     private float area;
     private int luff;

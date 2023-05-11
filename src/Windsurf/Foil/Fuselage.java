@@ -1,8 +1,8 @@
 package Windsurf.Foil;
 
-import Windsurf.Equipement;
+import Windsurf.Equipment;
 
-public class Fuselage extends Equipement {
+public class Fuselage extends Equipment {
     //Variables---------------------------------------------------------------------------------------------------------
     private int size;
     private Foil.MaterialType materialType;

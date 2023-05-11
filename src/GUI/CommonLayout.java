@@ -1,6 +1,6 @@
 package GUI;
 
-import Windsurf.Equipement;
+import Windsurf.Equipment;
 import Windsurf.Fin;
 import Windsurf.Mast;
 
@@ -23,7 +23,7 @@ public class CommonLayout {
     }
 
     public static void addDisciplineItem(JComboBox comboBoxDiscipline){
-        for (Equipement.Discipline disciplines: Equipement.Discipline.values())
+        for (Equipment.Discipline disciplines: Equipment.Discipline.values())
             comboBoxDiscipline.addItem(disciplines.name());
     }
 
@@ -33,7 +33,7 @@ public class CommonLayout {
     }
 
     public static void addCategoryItem(JComboBox comboBoxCategory){
-        for (Equipement.Category category: Equipement.Category.values())
+        for (Equipment.Category category: Equipment.Category.values())
             comboBoxCategory.addItem(category.name());
     }
 

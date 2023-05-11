@@ -1,6 +1,6 @@
 package Windsurf;
 
-public class Fin extends Equipement {
+public class Fin extends Equipment {
     //Variables---------------------------------------------------------------------------------------------------------
     private int size;
 

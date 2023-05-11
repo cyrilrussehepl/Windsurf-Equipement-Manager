@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 //public abstract -> get access in Foil package
-public abstract class Equipement implements Serializable {
+public abstract class Equipment implements Serializable {
     //Variables---------------------------------------------------------------------------------------------------------
     private int year = -1;
     private String brand;
@@ -28,18 +28,18 @@ public abstract class Equipement implements Serializable {
     }
 
     //Constructors------------------------------------------------------------------------------------------------------
-    public Equipement(int year, String brand, Category category, Date acquisitionDate, Discipline discipline) {
+    public Equipment(int year, String brand, Category category, Date acquisitionDate, Discipline discipline) {
         this.year = year;
         this.brand = brand;
         this.category = category;
         this.acquisitionDate = acquisitionDate;
         this.discipline = discipline;
     }
-    public Equipement(int year, String brand, Category category, Discipline discipline){
+    public Equipment(int year, String brand, Category category, Discipline discipline){
         this(year, brand, category, new Date(), discipline);
     }
-    public Equipement(int year, String brand, Category category){this(year, brand, category, Discipline.SLALOM);}
-    public Equipement(){
+    public Equipment(int year, String brand, Category category){this(year, brand, category, Discipline.SLALOM);}
+    public Equipment(){
         this(-1, null, Category.BOTH, new Date(), Discipline.SLALOM);
     }
 

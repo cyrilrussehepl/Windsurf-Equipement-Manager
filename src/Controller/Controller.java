@@ -75,7 +75,7 @@ public class Controller extends WindowAdapter implements ActionListener {
 
     private void onDelete() {
         if (mainWindow.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(null, "Aucune ligne sélectionnée!");
+            JOptionPane.showMessageDialog(null, "No selected lines to delete!");
             return;
         }
         switch (mainWindow.getCurrentTableEquipmentType()) {

@@ -1,6 +1,6 @@
 package Windsurf;
 
-public class Mast extends Equipement {
+public class Mast extends Equipment {
     public Geometry getGeometry() {
         return geometry;
     }

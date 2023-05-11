@@ -1,6 +1,6 @@
 package Windsurf;
 
-public class Board extends Equipement {
+public class Board extends Equipment {
     //Variables---------------------------------------------------------------------------------------------------------
     private int volume;
     private int width;

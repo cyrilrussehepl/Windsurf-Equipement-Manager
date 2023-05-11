@@ -1,6 +1,6 @@
 package GUI;
 
-import Windsurf.Equipement;
+import Windsurf.Equipment;
 import Windsurf.Mast;
 import Windsurf.Sail;
 
@@ -73,8 +73,8 @@ public class JDialogAddSail extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 newSail = new Sail(CommonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex()),
                         textFieldBrand.getText(),
-                        checkBoxFoil.isSelected() ? Equipement.Category.FOIL : Equipement.Category.PLANCHE,
-                        Equipement.Discipline.values()[comboBoxDiscipline.getSelectedIndex()]);
+                        checkBoxFoil.isSelected() ? Equipment.Category.FOIL : Equipment.Category.PLANCHE,
+                        Equipment.Discipline.values()[comboBoxDiscipline.getSelectedIndex()]);
                 try {
                     newSail.setArea(Float.parseFloat(textFieldArea.getText()));
                 } catch (NumberFormatException ex) {

@@ -1,7 +1,7 @@
 package GUI;
 
 import Windsurf.Board;
-import Windsurf.Equipement;
+import Windsurf.Equipment;
 import Windsurf.Fin;
 
 import javax.swing.*;
@@ -30,11 +30,11 @@ public class JDialogAddBoard extends JDialog {
     private int year;
     private String model;
     private String brand;
-    private Equipement.Discipline discipline;
+    private Equipment.Discipline discipline;
     private int volume;
     private int width;
     private Fin.BoxType boxType;
-    private Equipement.Category category;
+    private Equipment.Category category;
     private Board newBoard;
 
     //Constructor-------------------------------------------------------------------------------------------------------
@@ -72,11 +72,11 @@ public class JDialogAddBoard extends JDialog {
                 year = CommonLayout.yearIndexToDate(comboBoxYear.getSelectedIndex());
                 model = textFieldModel.getText();
                 brand = textFieldBrand.getText();
-                discipline = Equipement.Discipline.values()[comboBoxDiscipline.getSelectedIndex()];
+                discipline = Equipment.Discipline.values()[comboBoxDiscipline.getSelectedIndex()];
                 volume = ((Integer) spinnerVolume.getValue()).intValue();
                 width = ((Integer) spinnerWidth.getValue()).intValue();
                 boxType = Fin.BoxType.values()[comboBoxBoxType.getSelectedIndex()];
-                category = foilCheckBox.isSelected() ? Equipement.Category.FOIL : Equipement.Category.PLANCHE;
+                category = foilCheckBox.isSelected() ? Equipment.Category.FOIL : Equipment.Category.PLANCHE;
 
                 newBoard = new Board(year, brand, category, volume, width, model);
                 submit = true;
