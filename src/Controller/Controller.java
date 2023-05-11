@@ -22,12 +22,12 @@ public class Controller extends WindowAdapter implements ActionListener {
     private final static String SAVE_AS = "Save As";
     private final static String LOAD = "Load";
     private final static String DELETE = "Delete";
+    private final static String SETTINGS = "Settings";
     private static Controller instance;
     private static String filename;
     private Model model;
-    private JTable table;
     private static Settings settings;
-
+    private JTable table;
     //Constructor private for singleton class---------------------------------------------------------------------------
     private Controller() {
         model = Model.getInstance();
@@ -56,7 +56,18 @@ public class Controller extends WindowAdapter implements ActionListener {
             case SAVE_AS -> onSaveAs();
             case LOAD -> onLoad();
             case DELETE -> onDelete();
+            case SETTINGS -> onSettings();
         }
+    }
+
+    private void onSettings(){
+        JDialogSettings dialog = new JDialogSettings();
+        dialog.setVisible(true);
+        if (dialog.submited()) {
+            settings.setProperty("directory", dialog.getFilename());
+            settings.setProperty("theme", dialog.isDarkTheme()?"dark":"light");
+        }
+        dialog.dispose();
     }
 
     private void onDelete(){

@@ -17,9 +17,9 @@ public class Model implements Serializable {
     private ArrayList<Fin> fins = new ArrayList<Fin>();
     private ArrayList<Foil> foils = new ArrayList<Foil>();
     private int currentTable;
-
     //Constructors------------------------------------------------------------------------------------------------------
     private Model() {
+
     }
 
     public static Model getInstance() {
@@ -176,4 +176,5 @@ public class Model implements Serializable {
     public void setCurrentTable(int currentTable) {
         this.currentTable = currentTable;
     }
+
 }
