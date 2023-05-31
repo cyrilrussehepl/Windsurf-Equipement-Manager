@@ -160,11 +160,11 @@ public class JFrameWEMConsole extends JFrame {
 
     private void changeImg() {
         switch (currentTableEquipmentType) {
-            case BOARD -> labelImg.setIcon(new ImageIcon("src/img/Board.png"));
-            case SAIL -> labelImg.setIcon(new ImageIcon("src/img/Sail.png"));
-            case WISHBONE -> labelImg.setIcon(new ImageIcon("src/img/Wishbone.png"));
-            case MAST -> labelImg.setIcon(new ImageIcon("src/img/Mast.png"));
-            case FIN -> labelImg.setIcon(new ImageIcon("src/img/Fin.png"));
+            case BOARD -> labelImg.setIcon(new ImageIcon(getClass().getResource("/img/Board.png")));
+            case SAIL -> labelImg.setIcon(new ImageIcon(getClass().getResource("/img/Sail.png")));
+            case WISHBONE -> labelImg.setIcon(new ImageIcon(getClass().getResource("/img/Wishbone.png")));
+            case MAST -> labelImg.setIcon(new ImageIcon(getClass().getResource("/img/Mast.png")));
+            case FIN -> labelImg.setIcon(new ImageIcon(getClass().getResource("/img/Fin.png")));
         }
     }
 
@@ -194,7 +194,7 @@ public class JFrameWEMConsole extends JFrame {
         tableModelWishbone.setData(wishbones);
         tableModelMast.setData(masts);
         tableModelFin.setData(fins);
-        updateTableData();
+        refreshTable();
     }
 
     //Static Methods----------------------------------------------------------------------------------------------------
