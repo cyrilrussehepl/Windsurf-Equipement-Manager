@@ -33,6 +33,7 @@ public class Controller extends WindowAdapter implements ActionListener {
     private Controller(JFrameWEMConsole mainWindow) {
         model = Model.getInstance();
         this.mainWindow = mainWindow;
+        filename = "";
     }
 
     public static Controller getInstance(JFrameWEMConsole mainWindow) {
@@ -64,7 +65,7 @@ public class Controller extends WindowAdapter implements ActionListener {
     }
 
     private void onSettings() {
-        JDialogSettings dialog = new JDialogSettings();
+        JDialogSettings dialog = new JDialogSettings(settings);
         dialog.setVisible(true);
         if (dialog.submited()) {
             settings.setProperty("directory", dialog.getFilename());
@@ -111,7 +112,10 @@ public class Controller extends WindowAdapter implements ActionListener {
     }
 
     private void onSave() {
-        if (filename != null)
+        if(filename=="")
+            filename = settings.getProperty("directory");
+
+        if (filename!=null && new File(filename).exists())
             model.save(filename);
         else
             onSaveAs();
@@ -166,7 +170,7 @@ public class Controller extends WindowAdapter implements ActionListener {
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addSail(dialog.getNewSail());
-            mainWindow.updateTableData();
+            mainWindow.refreshTable();
         }
         dialog.dispose();
     }
@@ -176,7 +180,7 @@ public class Controller extends WindowAdapter implements ActionListener {
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addWishboon(dialog.getNewWishbone());
-            mainWindow.updateTableData();
+            mainWindow.refreshTable();
         }
         dialog.dispose();
     }
@@ -186,7 +190,7 @@ public class Controller extends WindowAdapter implements ActionListener {
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addMast(dialog.getNewMast());
-            mainWindow.updateTableData();
+            mainWindow.refreshTable();
         }
         dialog.dispose();
     }
@@ -196,7 +200,7 @@ public class Controller extends WindowAdapter implements ActionListener {
         dialog.setVisible(true);
         if (dialog.submited()) {
             model.addFin(dialog.getNewFin());
-            mainWindow.updateTableData();
+            mainWindow.refreshTable();
         }
         dialog.dispose();
     }

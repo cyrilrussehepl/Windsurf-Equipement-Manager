@@ -28,7 +28,7 @@ public class Settings {
     }
 
     private void initSettings(){
-        props.setProperty("directory", System.getProperty("user.dir"));
+        props.setProperty("directory", "");
         props.setProperty("theme", "light");
     }
 

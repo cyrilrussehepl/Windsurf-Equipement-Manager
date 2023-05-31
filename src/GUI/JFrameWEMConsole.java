@@ -16,7 +16,6 @@ public class JFrameWEMConsole extends JFrame {
     private JComboBox comboBoxDataSelection;
     private JPanel panelSelectedItem;
     private JTable tableData;
-    private JList listDataSelectedItem;
     private JLabel labelImg;
     private JScrollPane scrollPaneTableDataContainer;
     private JButton buttonDelete;
@@ -72,8 +71,8 @@ public class JFrameWEMConsole extends JFrame {
         subMenuAdd = new JMenu("Add");
         subMenuAdd.add(itemBoard);
         subMenuAdd.add(itemSail);
-        subMenuAdd.add(itemMast);
         subMenuAdd.add(itemWishbone);
+        subMenuAdd.add(itemMast);
         subMenuAdd.add(itemFin);
         itemSave = new JMenuItem("Save");
         itemSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));

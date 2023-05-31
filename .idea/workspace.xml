@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Projet-java:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a88b7d8-6c0d-4762-b749-3ef61800f84a" name="Changes" comment="Clean + maj controller et model en singleton">
-      <change afterPath="$PROJECT_DIR$/src/GUI/commonLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-04-23_09_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-04-23_09_29__Changes_.xml" afterDir="false" />
+    <list default="true" id="4a88b7d8-6c0d-4762-b749-3ef61800f84a" name="Changes" comment="fix refresh table + jar creation + img path for build version">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-04-23_09_29_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-04-23_09_29__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/GUIData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/GUIData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JDialogAddBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/JDialogAddMast.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JDialogAddMast.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/JDialogAddMast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JDialogAddMast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/JDialogSettings.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JDialogSettings.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/JDialogSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JDialogSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/JFrameWEMConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Equipement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Equipement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Fin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Fin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Foil/Foil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Foil/Foil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Foil/FoilMast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Foil/FoilMast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Foil/Fuselage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Foil/Fuselage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Foil/Wing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Foil/Wing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Mast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Mast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Sail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Sail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windsurf/Wishbone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windsurf/Wishbone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -66,31 +61,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "410",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/cyril/Desktop/Test.java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;280&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cyril/Desktop/Test.java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\cyril\Documents\HEPL\B2Q2\Java\Projet-new\Projet-java\src\GUI" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="B:\1-Etudes\HEPL\Java\Projet-WEM\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager">
@@ -116,7 +118,12 @@
       <option name="presentableId" value="Default" />
       <updated>1682320578458</updated>
       <workItem from="1682320580925" duration="30154000" />
-      <workItem from="1682416326452" duration="11777000" />
+      <workItem from="1682416326452" duration="12214000" />
+      <workItem from="1683355036223" duration="21783000" />
+      <workItem from="1683386867465" duration="5773000" />
+      <workItem from="1683447027543" duration="1849000" />
+      <workItem from="1685533361991" duration="3123000" />
+      <workItem from="1685537203192" duration="7279000" />
     </task>
     <task id="LOCAL-00001" summary="Classes métiers + ajout fichier MainWindow">
       <created>1682321142959</created>
@@ -139,7 +146,49 @@
       <option name="project" value="LOCAL" />
       <updated>1682324805797</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="maj gui + add commonLayout">
+      <created>1682435508474</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682435508474</updated>
+    </task>
+    <task id="LOCAL-00005" summary="save+load from file">
+      <created>1683379791404</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683379791404</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add wishbone works + remove labelNames">
+      <created>1683382756014</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683382756014</updated>
+    </task>
+    <task id="LOCAL-00007" summary="all add works + save">
+      <created>1683392696473</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683392696473</updated>
+    </task>
+    <task id="LOCAL-00008" summary="img update">
+      <created>1683448349245</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683448349245</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix refresh table + jar creation + img path for build version">
+      <created>1685540157702</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685540157702</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +221,12 @@
     <MESSAGE value="Classes métiers + ajout fichier MainWindow" />
     <MESSAGE value="Ajout Controller + modif mainWindow + main ouvre basique window" />
     <MESSAGE value="Clean + maj controller et model en singleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean + maj controller et model en singleton" />
+    <MESSAGE value="maj gui + add commonLayout" />
+    <MESSAGE value="save+load from file" />
+    <MESSAGE value="add wishbone works + remove labelNames" />
+    <MESSAGE value="all add works + save" />
+    <MESSAGE value="img update" />
+    <MESSAGE value="fix refresh table + jar creation + img path for build version" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix refresh table + jar creation + img path for build version" />
   </component>
 </project>
