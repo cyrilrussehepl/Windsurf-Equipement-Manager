@@ -4,12 +4,13 @@ import java.io.*;
 import java.util.Properties;
 
 public class Settings {
-    private static final String FILENAME = "settings.properties";
+    private String filename;
     private Properties props;
 
     public Settings(){
         props = new Properties();
-        File file = new File(FILENAME);
+        filename = System.getProperty("user.dir")+"\\settings.properties";
+        File file = new File(filename);
         if(!file.exists()){
             try {
                 file.createNewFile();
@@ -37,7 +38,7 @@ public class Settings {
     }
 
     public void setProperty(String key, String value){
-        try(OutputStream output = new FileOutputStream(FILENAME)){
+        try(OutputStream output = new FileOutputStream(filename)){
             props.setProperty(key,value);
             props.store(output, null);
         }catch (IOException e){

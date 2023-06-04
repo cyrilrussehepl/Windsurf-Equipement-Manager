@@ -26,6 +26,7 @@ public class Controller extends WindowAdapter implements ActionListener {
     private final static String SETTINGS = "Settings";
     private final static String UPDATE = "Update";
     private final static String ADD = "Add";
+    private final static String ABOUT = "About";
     private static Controller instance;
     private static String filename;
     private Model model;
@@ -73,7 +74,15 @@ public class Controller extends WindowAdapter implements ActionListener {
             case SETTINGS -> onSettings();
             case UPDATE -> onUpdate();
             case ADD -> onAdd();
+            case ABOUT -> onAbout();
         }
+    }
+
+    private void onAbout() {
+        String message = "Windsurf Equipment Manager\n\nDéveloppée par Cyril Russe\ndans le cadre du cours de java B2 HEPL\n\nApplication de gestion de matériel de planche à voile.";
+        String title = "À propos de mon application";
+
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void onLoadCSV() {
