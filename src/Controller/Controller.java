@@ -21,6 +21,7 @@ public class Controller extends WindowAdapter implements ActionListener {
     private final static String SAVE = "Save";
     private final static String SAVE_AS = "Save As";
     private final static String LOAD = "Load";
+    private final static String LOAD_CSV = "Load from CSV";
     private final static String DELETE = "Delete";
     private final static String SETTINGS = "Settings";
     private final static String UPDATE = "Update";
@@ -67,11 +68,17 @@ public class Controller extends WindowAdapter implements ActionListener {
             case SAVE -> onSave();
             case SAVE_AS -> onSaveAs();
             case LOAD -> onLoad();
+            case LOAD_CSV -> onLoadCSV();
             case DELETE -> onDelete();
             case SETTINGS -> onSettings();
             case UPDATE -> onUpdate();
             case ADD -> onAdd();
         }
+    }
+
+    private void onLoadCSV() {
+        model.loadCSV();
+        mainWindow.loadNewData(model.getBoards(), model.getSails(), model.getWishboons(), model.getMasts(), model.getFins());
     }
 
     private void onAdd() {

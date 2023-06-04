@@ -36,6 +36,7 @@ public class JFrameWEMConsole extends JFrame {
     private JMenuItem itemSave;
     private JMenuItem itemSaveAs;
     private JMenuItem itemLoad;
+    private JMenuItem itemLoadCsv;
     private JMenuItem itemSettings;
     private TableType currentTableEquipmentType;
     private TableModelBoard tableModelBoard;
@@ -79,6 +80,7 @@ public class JFrameWEMConsole extends JFrame {
         itemSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         itemSaveAs = new JMenuItem("Save As");
         itemLoad = new JMenuItem("Load");
+        itemLoadCsv = new JMenuItem("Load from CSV");
         itemLoad.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         itemExit = new JMenuItem("Exit");
         itemExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
@@ -88,6 +90,7 @@ public class JFrameWEMConsole extends JFrame {
         menuNew.add(itemSave);
         menuNew.add(itemSaveAs);
         menuNew.add(itemLoad);
+        menuNew.add(itemLoadCsv);
         menuNew.addSeparator();
         menuNew.add(itemExit);
         //menuSettings
@@ -137,6 +140,7 @@ public class JFrameWEMConsole extends JFrame {
         itemMast.addActionListener(c);
         itemFin.addActionListener(c);
         itemLoad.addActionListener(c);
+        itemLoadCsv.addActionListener(c);
         itemSave.addActionListener(c);
         itemSaveAs.addActionListener(c);
         itemExit.addActionListener(c);

@@ -1,11 +1,16 @@
 package Model;
 
 import Windsurf.*;
-import Windsurf.Foil.*;
+import Windsurf.Foil.Foil;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+import org.apache.commons.lang3.*;
 
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class Model implements Serializable {
     //Variables---------------------------------------------------------------------------------------------------------
@@ -166,6 +171,49 @@ public class Model implements Serializable {
             System.out.println("Io exception");
         } catch (ClassNotFoundException e) {
             System.out.println("Class not found");
+        }
+    }
+
+    public void loadCSV(){
+        try(CSVReader reader = new CSVReader(new FileReader(System.getProperty("user.dir")+"\\test.csv")))
+        {
+            reader.readNext();
+
+            List<String[]> lignes = reader.readAll();
+            for(String[] ligne : lignes)
+            {
+                int year = Integer.parseInt(ligne[0]);
+                String model = ligne[1];
+                String brand = ligne[2];
+                Equipment.Discipline discipline = null;
+                switch (ligne[3]){
+                    case "SLALOM" -> discipline = Equipment.Discipline.SLALOM;
+                    case "RACE" -> discipline = Equipment.Discipline.RACE;
+                    case "FREERACE" -> discipline = Equipment.Discipline.FREERACE;
+                    case "FREERIDE" -> discipline = Equipment.Discipline.FREERIDE;
+                    case "FREESTYLE" -> discipline = Equipment.Discipline.FREESTYLE;
+                    case "WAVE" -> discipline = Equipment.Discipline.WAVE;
+                }
+                int volume = Integer.parseInt(ligne[4]);
+                int width = Integer.parseInt(ligne[5]);
+                Fin.BoxType boxType = null;
+                switch (ligne[6]){
+                    case "DEEP_TUTTLE" -> boxType = Fin.BoxType.DEEP_TUTTLE;
+                    case "TUTTLE" -> boxType = Fin.BoxType.TUTTLE;
+                    case "POWER_BOX" -> boxType = Fin.BoxType.POWER_BOX;
+                }
+                Equipment.Category category = null;
+                switch (ligne[7]){
+                    case "PLANCHE" -> category = Equipment.Category.PLANCHE;
+                    case "FOIL" -> category = Equipment.Category.FOIL;
+                    case "BOTH" -> category = Equipment.Category.BOTH;
+                }
+                addBoard(new Board(year, brand, category, volume, width, model));
+            }
+        }
+        catch (IOException | CsvException e)
+        {
+            System.out.println("Probleme avec le fichier csv");
         }
     }
 
