@@ -9,6 +9,7 @@ import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class JDialogAddBoard extends JDialog {
     //Variables
@@ -38,6 +39,16 @@ public class JDialogAddBoard extends JDialog {
     private Board newBoard;
 
     //Constructor-------------------------------------------------------------------------------------------------------
+
+    public JDialogAddBoard(Board boardToUpdate){
+        this();
+        textFieldModel.setText(boardToUpdate.getModel());
+        textFieldBrand.setText(boardToUpdate.getBrand());
+        spinnerVolume.setValue(boardToUpdate.getVolume());
+        spinnerWidth.setValue(boardToUpdate.getWidth());
+        foilCheckBox.setSelected(boardToUpdate.isFoilCompatible());
+    }
+
     public JDialogAddBoard() {
         super();
         setModal(true);

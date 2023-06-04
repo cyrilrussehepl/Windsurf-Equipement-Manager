@@ -20,6 +20,7 @@ public class JFrameWEMConsole extends JFrame {
     private JScrollPane scrollPaneTableDataContainer;
     private JButton buttonDelete;
     private JButton buttonUpdate;
+    private JButton buttonAdd;
     private JMenuBar menuBar;
     private JMenu menuNew;
     private JMenu subMenuAdd;
@@ -144,6 +145,7 @@ public class JFrameWEMConsole extends JFrame {
         itemAbout.addActionListener(c);
         buttonUpdate.addActionListener(c);
         buttonDelete.addActionListener(c);
+        buttonAdd.addActionListener(c);
         comboBoxDataSelection.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -22,6 +22,14 @@ public class JDialogAddMast extends JDialog{
     private JSpinner spinnerLength;
     private Mast newMast;
 
+    public JDialogAddMast(Mast mastToUpdate){
+        this();
+        textFieldBrand.setText(mastToUpdate.getBrand());
+        spinnerLength.setValue(mastToUpdate.getLength());
+        spinnerCarbonPercent.setValue(mastToUpdate.getCarbonPercent());
+        checkBoxRDM.setSelected(mastToUpdate.getGeometry()== Mast.Geometry.RDM);
+    }
+
     public JDialogAddMast()
     {
         super();

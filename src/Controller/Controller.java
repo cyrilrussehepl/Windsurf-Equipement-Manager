@@ -1,13 +1,14 @@
 package Controller;
 
 import GUI.*;
-import GUI.MyTableModels.*;
 import Model.*;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.*;
 import java.io.*;
+
+import static java.lang.Boolean.getBoolean;
 
 public class Controller extends WindowAdapter implements ActionListener {
     //Variables---------------------------------------------------------------------------------------------------------
@@ -23,6 +24,7 @@ public class Controller extends WindowAdapter implements ActionListener {
     private final static String DELETE = "Delete";
     private final static String SETTINGS = "Settings";
     private final static String UPDATE = "Update";
+    private final static String ADD = "Add";
     private static Controller instance;
     private static String filename;
     private Model model;
@@ -33,13 +35,20 @@ public class Controller extends WindowAdapter implements ActionListener {
     private Controller(JFrameWEMConsole mainWindow) {
         model = Model.getInstance();
         this.mainWindow = mainWindow;
-        filename = "";
+
+        if(settings.getProperty("loadOnStartup").equals("true") && !settings.getProperty("directory").equals("") && new File(settings.getProperty("directory")).exists()){
+            filename = settings.getProperty("directory");
+            model.load(filename);
+            this.mainWindow.loadNewData(model.getBoards(), model.getSails(), model.getWishboons(), model.getMasts(), model.getFins());
+        }
+        else
+            filename = "";
     }
 
     public static Controller getInstance(JFrameWEMConsole mainWindow) {
         if (instance == null) {
-            instance = new Controller(mainWindow);
             settings = new Settings();
+            instance = new Controller(mainWindow);
         }
         return instance;
     }
@@ -61,6 +70,17 @@ public class Controller extends WindowAdapter implements ActionListener {
             case DELETE -> onDelete();
             case SETTINGS -> onSettings();
             case UPDATE -> onUpdate();
+            case ADD -> onAdd();
+        }
+    }
+
+    private void onAdd() {
+        switch (mainWindow.getCurrentTableEquipmentType()){
+            case BOARD -> onNewBoard();
+            case SAIL -> onNewSail();
+            case WISHBONE -> onNewWishbone();
+            case MAST -> onNewMast();
+            case FIN -> onNewFin();
         }
     }
 
@@ -69,14 +89,14 @@ public class Controller extends WindowAdapter implements ActionListener {
         dialog.setVisible(true);
         if (dialog.submited()) {
             settings.setProperty("directory", dialog.getFilename());
-            settings.setProperty("theme", dialog.isDarkTheme() ? "dark" : "light");
+            settings.setProperty("loadOnStartup", dialog.isLoadOnStartup() ? "true" : "false");
         }
         dialog.dispose();
     }
 
     private void onDelete() {
         if (mainWindow.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(null, "No selected lines to delete!");
+            JOptionPane.showMessageDialog(null, "No selected lines to delete");
             return;
         }
         switch (mainWindow.getCurrentTableEquipmentType()) {
@@ -141,13 +161,50 @@ public class Controller extends WindowAdapter implements ActionListener {
     private void onUpdate() {
         if (mainWindow.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "No selected line to update");
+            return;
         }
         switch (mainWindow.getCurrentTableEquipmentType()) {
             case BOARD -> {
-                JDialogAddBoard dialog = new JDialogAddBoard();
+                JDialogAddBoard dialog = new JDialogAddBoard(model.getBoards().get(mainWindow.getSelectedRow()));
                 dialog.setVisible(true);
                 if (dialog.submited()) {
                     model.updateBoard(mainWindow.getSelectedRow(), dialog.getNewBoard());
+                    mainWindow.refreshTable();
+                }
+                dialog.dispose();
+            }
+            case SAIL -> {
+                JDialogAddSail dialog = new JDialogAddSail(model.getSails().get(mainWindow.getSelectedRow()));
+                dialog.setVisible(true);
+                if (dialog.submited()) {
+                    model.updateSail(mainWindow.getSelectedRow(), dialog.getNewSail());
+                    mainWindow.refreshTable();
+                }
+                dialog.dispose();
+            }
+            case WISHBONE -> {
+                JDialogAddWishbone dialog = new JDialogAddWishbone(model.getWishboons().get(mainWindow.getSelectedRow()));
+                dialog.setVisible(true);
+                if (dialog.submited()) {
+                    model.updateWishboon(mainWindow.getSelectedRow(), dialog.getNewWishbone());
+                    mainWindow.refreshTable();
+                }
+                dialog.dispose();
+            }
+            case MAST -> {
+                JDialogAddMast dialog = new JDialogAddMast(model.getMasts().get(mainWindow.getSelectedRow()));
+                dialog.setVisible(true);
+                if (dialog.submited()) {
+                    model.updateMast(mainWindow.getSelectedRow(), dialog.getNewMast());
+                    mainWindow.refreshTable();
+                }
+                dialog.dispose();
+            }
+            case FIN -> {
+                JDialogAddFin dialog = new JDialogAddFin(model.getFins().get(mainWindow.getSelectedRow()));
+                dialog.setVisible(true);
+                if (dialog.submited()) {
+                    model.updateFin(mainWindow.getSelectedRow(), dialog.getNewFin());
                     mainWindow.refreshTable();
                 }
                 dialog.dispose();

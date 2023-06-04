@@ -6,9 +6,9 @@ public class Fin extends Equipment {
 
 
     public enum BoxType {
-        POWER_BOX,
+        DEEP_TUTTLE,
         TUTTLE,
-        DEEP_TUTTLE
+        POWER_BOX,
     }
 
     private BoxType box_type;

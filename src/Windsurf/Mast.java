@@ -11,13 +11,13 @@ public class Mast extends Equipment {
 
     //Variables---------------------------------------------------------------------------------------------------------
     public enum Curve {
-        HARD_TOP,
         CONST_CURVE,
+        HARD_TOP,
         FLEX_TOP
     }
     public enum Geometry {
+        SDM,
         RDM,
-        SDM
     }
     private int length;
     private int carbonPercent;

@@ -1,5 +1,7 @@
 package Windsurf;
 
+import Windsurf.Foil.Foil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -90,6 +92,10 @@ public abstract class Equipment implements Serializable {
 
     public void setDiscipline(Discipline discipline) {
         this.discipline = discipline;
+    }
+
+    public boolean isFoilCompatible(){
+        return category == Category.FOIL?true:false;
     }
 
     //Methods-----------------------------------------------------------------------------------------------------------

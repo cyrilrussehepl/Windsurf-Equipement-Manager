@@ -39,6 +39,16 @@ public class JDialogAddSail extends JDialog {
     private JCheckBox checkBoxFoil;
     private Sail newSail;
 
+    public JDialogAddSail(Sail sailToUpdate){
+        this();
+        textFieldBrand.setText(sailToUpdate.getBrand());
+        textFieldArea.setText(String.valueOf(sailToUpdate.getArea()));
+        textFieldModel.setText(sailToUpdate.getModel());
+        spinnerLuff.setValue(sailToUpdate.getLuff());
+        spinnerBoom.setValue(sailToUpdate.getBoom());
+        checkBoxFoil.setSelected(sailToUpdate.isFoilCompatible());
+    }
+
     public JDialogAddSail() {
         super();
         setModal(true);

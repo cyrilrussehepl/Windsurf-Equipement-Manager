@@ -17,7 +17,7 @@ public class JDialogSettings extends JDialog{
     private JButton buttonFilename;
     private JLabel labelFilename;
     private boolean submit;
-    private boolean darkTheme;
+    private boolean loadOnStartup;
     private String filename;
 
     public JDialogSettings(Model.Settings settings)
@@ -36,6 +36,9 @@ public class JDialogSettings extends JDialog{
         filename = settings.getProperty("directory");
         labelFilename.setText(filename);
 
+        if(settings.getProperty("loadOnStartup").equals("true"))
+            checkboxTheme.setSelected(true);
+
         //Action listeners
         buttonCancel.addActionListener(new ActionListener() {
             @Override
@@ -47,7 +50,7 @@ public class JDialogSettings extends JDialog{
             @Override
             public void actionPerformed(ActionEvent e) {
 //                filename = textFieldSaveFilename.getText();
-                darkTheme = checkboxTheme.isSelected();
+                loadOnStartup = checkboxTheme.isSelected();
                 submit = true;
                 setVisible(false);
             }
@@ -73,8 +76,8 @@ public class JDialogSettings extends JDialog{
         });
     }
 
-    public boolean isDarkTheme() {
-        return darkTheme;
+    public boolean isLoadOnStartup() {
+        return loadOnStartup;
     }
 
     public boolean submited() {

@@ -29,7 +29,7 @@ public class Settings {
 
     private void initSettings(){
         props.setProperty("directory", "");
-        props.setProperty("theme", "light");
+        props.setProperty("loadOnStartup", "false");
     }
 
     public String getProperty(String key){

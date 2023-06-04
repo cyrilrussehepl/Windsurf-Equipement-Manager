@@ -20,6 +20,14 @@ public class JDialogAddWishbone extends JDialog{
     private boolean submit;
     private Wishbone newWishbone;
 
+    public JDialogAddWishbone(Wishbone wishboneToUpdate){
+        this();
+        textFieldBrand.setText(wishboneToUpdate.getBrand());
+        spinnerMinSize.setValue(wishboneToUpdate.getSizeMin());
+        spinnerMaxSize.setValue(wishboneToUpdate.getSizeMax());
+        spinnerCarbon.setValue(wishboneToUpdate.getCarbonPercent());
+    }
+
     public JDialogAddWishbone()
     {
         super();

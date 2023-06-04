@@ -23,6 +23,14 @@ public class JDialogAddFin extends JDialog {
     private Fin newFin;
 
     //Constructor-------------------------------------------------------------------------------------------------------
+
+    public JDialogAddFin(Fin finToUpdate){
+        this();
+        textFieldBrand.setText(finToUpdate.getBrand());
+        spinnerSize.setValue(finToUpdate.getSize());
+        antiAlgaeCheckBox.setSelected(finToUpdate.isAnti_algae());
+    }
+
     public JDialogAddFin()
     {
         super();
